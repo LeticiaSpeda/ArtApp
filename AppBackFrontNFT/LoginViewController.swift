@@ -1,6 +1,6 @@
 import UIKit
 
-final class ViewController: UIViewController, ViewCode {
+final class LoginViewController: UIViewController, ViewCode {
 
     private lazy var verticalStackView: UIStackView = {
         let stack = UIStackView()
@@ -40,10 +40,18 @@ final class ViewController: UIViewController, ViewCode {
 
     func setupConstraints() {
         NSLayoutConstraint.activate(
-            setupVerticalStackConstraints() +
             setupImageBottomContraints() +
+            setupVerticalStackConstraints() +
             setupImageLogoConstraints()
         )
+    }
+
+    private func setupImageBottomContraints() -> [NSLayoutConstraint] {
+        [imageBottom.topAnchor.constraint(equalTo: view.topAnchor),
+         imageBottom.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+         imageBottom.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+         imageBottom.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ]
     }
 
     private func setupVerticalStackConstraints() -> [NSLayoutConstraint] {
@@ -54,13 +62,7 @@ final class ViewController: UIViewController, ViewCode {
         ]
     }
 
-    private func setupImageBottomContraints() -> [NSLayoutConstraint] {
-        [imageBottom.topAnchor.constraint(equalTo: view.topAnchor),
-         imageBottom.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-         imageBottom.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-         imageBottom.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ]
-    }
+
 
     private func setupImageLogoConstraints() -> [NSLayoutConstraint] {
         [imageLogo.heightAnchor.constraint(equalToConstant: 80)]
