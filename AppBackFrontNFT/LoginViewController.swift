@@ -48,7 +48,10 @@ final class LoginViewController: UIViewController, ViewCode {
         textField.leftViewMode = .always
         textField.backgroundColor = .black.withAlphaComponent(0.3)
         textField.keyboardAppearance = .dark
+        textField.enablesReturnKeyAutomatically = true
+        textField.returnKeyType = .next
         textField.delegate = self
+        textField.tag = 1
         textField.enableViewCode()
         return textField
     }()
@@ -60,7 +63,6 @@ final class LoginViewController: UIViewController, ViewCode {
         textField.layer.borderWidth = 2
         textField.layer.borderColor = UIColor.white.cgColor
         textField.layer.cornerRadius = 10
-        textField.keyboardType = .emailAddress
         textField.attributedPlaceholder = NSAttributedString(string: "senha: @hd_135", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.6)])
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 62))
         textField.leftViewMode = .always
@@ -68,6 +70,7 @@ final class LoginViewController: UIViewController, ViewCode {
         textField.keyboardAppearance = .dark
         textField.isSecureTextEntry = true
         textField.delegate = self
+        textField.tag = 2
         textField.enableViewCode()
         return textField
     }()
@@ -154,6 +157,14 @@ final class LoginViewController: UIViewController, ViewCode {
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-          textField.resignFirstResponder()
+        let nextTag = textField.tag + 1
+
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+
+        return true
        }
 }
