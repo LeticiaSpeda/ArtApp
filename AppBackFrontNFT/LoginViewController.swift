@@ -46,10 +46,31 @@ final class LoginViewController: UIViewController, ViewCode {
         textField.attributedPlaceholder = NSAttributedString(string: "usuario@email.com", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.6)])
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 62))
         textField.leftViewMode = .always
+        textField.backgroundColor = .black.withAlphaComponent(0.3)
+        textField.keyboardAppearance = .dark
+        textField.delegate = self
         textField.enableViewCode()
         return textField
     }()
 
+    private lazy var passworTextField: UITextField = {
+        let textField = UITextField()
+        textField.textColor = .white
+        textField.tintColor = .white
+        textField.layer.borderWidth = 2
+        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.cornerRadius = 10
+        textField.keyboardType = .emailAddress
+        textField.attributedPlaceholder = NSAttributedString(string: "senha: @hd_135", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.6)])
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 62))
+        textField.leftViewMode = .always
+        textField.backgroundColor = .black.withAlphaComponent(0.3)
+        textField.keyboardAppearance = .dark
+        textField.isSecureTextEntry = true
+        textField.delegate = self
+        textField.enableViewCode()
+        return textField
+    }()
 
     func setGradientBackground() {
         let colorTop =  UIColor(
@@ -92,6 +113,7 @@ final class LoginViewController: UIViewController, ViewCode {
         verticalStackView.addArrangedSubview(titleApp)
         verticalStackView.addArrangedSubview(subTitleApp)
         verticalStackView.addArrangedSubview(emailTextField)
+        verticalStackView.addArrangedSubview(passworTextField)
         verticalStackView.addArrangedSubview(UIView())
     }
 
@@ -99,7 +121,8 @@ final class LoginViewController: UIViewController, ViewCode {
         NSLayoutConstraint.activate(
             setupVerticalStackConstraints() +
             setupImageLogoConstraints() +
-            setupEmailTextFieldConstraints()
+            setupEmailTextFieldConstraints() +
+            setupPasswordTextFieldConstraints()
         )
     }
 
@@ -116,9 +139,11 @@ final class LoginViewController: UIViewController, ViewCode {
     }
 
     private func setupEmailTextFieldConstraints() -> [NSLayoutConstraint] {
-        [ 
-            emailTextField.heightAnchor.constraint(equalToConstant: 40)
-        ]
+        [emailTextField.heightAnchor.constraint(equalToConstant: 40)]
+    }
+
+    private func setupPasswordTextFieldConstraints() -> [NSLayoutConstraint] {
+        [passworTextField.heightAnchor.constraint(equalToConstant: 40)]
     }
 
     func setupStyle() {
@@ -127,3 +152,8 @@ final class LoginViewController: UIViewController, ViewCode {
 }
 
 
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+          textField.resignFirstResponder()
+       }
+}
