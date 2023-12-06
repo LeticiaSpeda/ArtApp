@@ -1,8 +1,5 @@
 import UIKit
 
-struct ValidationErrorViewData {
-    let message: String
-}
 
 final class LoginViewController: UIViewController, ViewCode {
 
@@ -231,10 +228,6 @@ final class LoginViewController: UIViewController, ViewCode {
         [passworTextField.heightAnchor.constraint(equalToConstant: 40)]
     }
 
-
-
-
-
     func setupStyle() {
         setGradientBackground()
     }
@@ -244,24 +237,9 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let nextTag = textField.tag + 1
 
-        if let nextResponder = textField.superview?.viewWithTag(nextTag) as? UITextField {
-
-            if textField.tag == 1 {
-                if !isValidEmail(email: textField.text ?? "") {
-                    return false
-                }
-            }
-
-            if textField.tag == 2 {
-                if !isValidPassword(password: textField.text ?? "") {
-                    textField.enablesReturnKeyAutomatically = false
-                    return false
-                }
-            }
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
             nextResponder.becomeFirstResponder()
-
         } else {
-
             textField.resignFirstResponder()
         }
         return true
