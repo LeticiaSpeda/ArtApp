@@ -1,5 +1,9 @@
 import UIKit
 
+struct ValidationErrorViewData {
+    let message: String
+}
+
 final class LoginViewController: UIViewController, ViewCode {
 
     private lazy var verticalStackView: UIStackView = {
@@ -15,6 +19,14 @@ final class LoginViewController: UIViewController, ViewCode {
         image.contentMode = .scaleAspectFit
         image.enableViewCode()
         return image
+    }()
+
+    private lazy var horizontalStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 10
+        stack.enableViewCode()
+        return stack
     }()
 
     private lazy var titleApp: UILabel = {
@@ -75,6 +87,32 @@ final class LoginViewController: UIViewController, ViewCode {
         return textField
     }()
 
+
+    private lazy var recoverPasswordButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Recuperar senha?", for: .normal)
+        button.titleLabel?.textColor = UIColor.systemPink
+        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        button.enableViewCode()
+        return button
+    }()
+
+    private lazy var loginButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Logar", for: .normal)
+        button.titleLabel?.textColor = UIColor.systemPink
+        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        button.backgroundColor = .backgroundButtom
+        button.layer.cornerRadius = 8
+        button.enableViewCode()
+        return button
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        commonInit()
+    }
+
     func setGradientBackground() {
         let colorTop =  UIColor(
             red: 36.0/255.0,
@@ -103,9 +141,37 @@ final class LoginViewController: UIViewController, ViewCode {
         self.view.layer.insertSublayer(gradientLayer, at:0)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        commonInit()
+    func setButtonGradientBackground() {
+        let colorTop =  UIColor(
+            red: 234.0/255.0,
+            green: 71.0/255.0,
+            blue: 234.0/255.0,
+            alpha: 1.0
+        ).cgColor
+
+        let colorBottom = UIColor(
+            red: 160.0/255.0,
+            green: 58.0/255.0,
+            blue: 239.0/255.0,
+            alpha: 1.0
+        ).cgColor
+
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [1.0, 0.0]
+        gradientLayer.frame = self.view.bounds
+
+        self.view.layer.insertSublayer(gradientLayer, at:0)
+    }
+
+    private func isValidEmail(email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
+
+    private func isValidPassword(password: String) -> Bool {
+        return password.count >= 6
     }
 
     func setupHierarchy() {
@@ -117,7 +183,12 @@ final class LoginViewController: UIViewController, ViewCode {
         verticalStackView.addArrangedSubview(subTitleApp)
         verticalStackView.addArrangedSubview(emailTextField)
         verticalStackView.addArrangedSubview(passworTextField)
+        verticalStackView.addArrangedSubview(horizontalStackView)
+        verticalStackView.addArrangedSubview(loginButton)
         verticalStackView.addArrangedSubview(UIView())
+
+        horizontalStackView.addArrangedSubview(UIView())
+        horizontalStackView.addArrangedSubview(recoverPasswordButton)
     }
 
     func setupConstraints() {
@@ -126,14 +197,25 @@ final class LoginViewController: UIViewController, ViewCode {
             setupImageLogoConstraints() +
             setupEmailTextFieldConstraints() +
             setupPasswordTextFieldConstraints()
-        )
+            )
     }
 
     private func setupVerticalStackConstraints() -> [NSLayoutConstraint] {
-        [ verticalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-          verticalStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-          verticalStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-          verticalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        [verticalStackView.topAnchor.constraint(
+            equalTo: view.safeAreaLayoutGuide.topAnchor,
+            constant: 16
+        ),
+         verticalStackView.leadingAnchor.constraint(
+            equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+            constant: 16
+         ),
+         verticalStackView.trailingAnchor.constraint(
+            equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+            constant: -16
+         ),
+         verticalStackView.bottomAnchor.constraint(
+            equalTo: view.safeAreaLayoutGuide.bottomAnchor
+         )
         ]
     }
 
@@ -149,22 +231,39 @@ final class LoginViewController: UIViewController, ViewCode {
         [passworTextField.heightAnchor.constraint(equalToConstant: 40)]
     }
 
+
+
+
+
     func setupStyle() {
         setGradientBackground()
     }
 }
 
-
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let nextTag = textField.tag + 1
 
-        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) as? UITextField {
+
+            if textField.tag == 1 {
+                if !isValidEmail(email: textField.text ?? "") {
+                    return false
+                }
+            }
+
+            if textField.tag == 2 {
+                if !isValidPassword(password: textField.text ?? "") {
+                    textField.enablesReturnKeyAutomatically = false
+                    return false
+                }
+            }
             nextResponder.becomeFirstResponder()
+
         } else {
+
             textField.resignFirstResponder()
         }
-
         return true
-       }
+    }
 }
