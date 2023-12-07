@@ -171,6 +171,14 @@ final class LoginViewController: UIViewController, ViewCode {
         return password.count >= 6
     }
 
+    @objc func handleLogin() {
+        print("ok")
+    }
+
+    func setupActions() {
+        loginButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+    }
+
     func setupHierarchy() {
         view.addSubview(verticalStackView)
 
