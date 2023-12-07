@@ -2,6 +2,7 @@ import UIKit
 
 
 final class LoginViewController: UIViewController, ViewCode {
+    private let viewModel = LoginViewModel()
 
     private lazy var verticalStackView: UIStackView = {
         let stack = UIStackView()
@@ -107,6 +108,7 @@ final class LoginViewController: UIViewController, ViewCode {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         commonInit()
     }
 
@@ -172,7 +174,7 @@ final class LoginViewController: UIViewController, ViewCode {
     }
 
     @objc func handleLogin() {
-        print("ok")
+        viewModel.handleLoginButtonTap()
     }
 
     func setupActions() {
@@ -251,5 +253,12 @@ extension LoginViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+}
+
+extension LoginViewController: LoginViewModelDelegate {
+    func didTapLoginButton() {
+        let controller = TesteViewController()
+        present(controller, animated: true)
     }
 }

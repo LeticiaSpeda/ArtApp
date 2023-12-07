@@ -1,5 +1,12 @@
-import UIKit
+protocol LoginViewModelDelegate: AnyObject {
+    func didTapLoginButton()
+}
 
-final class LoginViewModel {
-    
+class LoginViewModel {
+    weak var delegate: LoginViewModelDelegate?
+
+    func handleLoginButtonTap() {
+        print("ok")
+        delegate?.didTapLoginButton()
+    }
 }

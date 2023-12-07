@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E030C1002B2259B000046C38 /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030C0FF2B2259B000046C38 /* teste.swift */; };
 		E05248C02B17733900E8260C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248BF2B17733900E8260C /* AppDelegate.swift */; };
 		E05248C22B17733900E8260C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248C12B17733900E8260C /* SceneDelegate.swift */; };
 		E05248C42B17733900E8260C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248C32B17733900E8260C /* LoginViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E030C0FF2B2259B000046C38 /* teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teste.swift; sourceTree = "<group>"; };
 		E05248BC2B17733900E8260C /* AppBackFrontNFT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppBackFrontNFT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05248BF2B17733900E8260C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E05248C12B17733900E8260C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				E05248D42B1773BE00E8260C /* Assets */,
 				E05248D32B1773B200E8260C /* Aplication */,
 				E05248CD2B17733B00E8260C /* Info.plist */,
+				E030C0FF2B2259B000046C38 /* teste.swift */,
 			);
 			path = AppBackFrontNFT;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				E05248C42B17733900E8260C /* LoginViewController.swift in Sources */,
 				E05248C02B17733900E8260C /* AppDelegate.swift in Sources */,
 				E05248DA2B1777A200E8260C /* UIView+Extensions.swift in Sources */,
+				E030C1002B2259B000046C38 /* teste.swift in Sources */,
 				E05248C22B17733900E8260C /* SceneDelegate.swift in Sources */,
 				E05248D72B17766B00E8260C /* ViewCode.swift in Sources */,
 				E0C9C33D2B1E61FC004D347C /* Colors.swift in Sources */,
