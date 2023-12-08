@@ -109,6 +109,7 @@ final class LoginViewController: UIViewController, ViewCode {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
+        dismissKeyBoard()
         commonInit()
     }
 
@@ -258,7 +259,7 @@ extension LoginViewController: UITextFieldDelegate {
 
 extension LoginViewController: LoginViewModelDelegate {
     func didTapLoginButton() {
-        let controller = TesteViewController()
+        let controller = HomeViewController()
         present(controller, animated: true)
     }
 }
