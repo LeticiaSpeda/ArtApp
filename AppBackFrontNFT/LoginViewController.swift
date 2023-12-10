@@ -100,7 +100,7 @@ final class LoginViewController: UIViewController, ViewCode {
         button.setTitle("Logar", for: .normal)
         button.titleLabel?.textColor = UIColor.systemPink
         button.titleLabel?.font = .boldSystemFont(ofSize: 16)
-        button.backgroundColor = .backgroundButtom
+        button.backgroundColor = .gray
         button.layer.cornerRadius = 8
         button.enableViewCode()
         return button
@@ -162,16 +162,6 @@ final class LoginViewController: UIViewController, ViewCode {
         gradientLayer.frame = self.view.bounds
 
         self.view.layer.insertSublayer(gradientLayer, at:0)
-    }
-
-    private func isValidEmail(email: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-        return emailPredicate.evaluate(with: email)
-    }
-
-    private func isValidPassword(password: String) -> Bool {
-        return password.count >= 6
     }
 
     @objc func handleLogin() {
@@ -245,6 +235,36 @@ final class LoginViewController: UIViewController, ViewCode {
 }
 
 extension LoginViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text?.isEmpty ?? false {
+            textField.layer.borderWidth = 2
+            textField.layer.borderColor = UIColor.red.cgColor
+        } else {
+            switch textField {
+            case emailTextField:
+                if let email = emailTextField.text, !email.isValidEmail(email: email) {
+                    textField.layer.borderWidth = 2
+                    textField.layer.borderColor = UIColor.red.cgColor
+                } else {
+                    textField.layer.borderWidth = 2
+                    textField.layer.borderColor = UIColor.white.cgColor
+                }
+                viewModel.updateEmail(emailTextField.text ?? "")
+            case passworTextField:
+                if let password = passworTextField.text, !password.isValidPassword(password: password) {
+                    textField.layer.borderWidth = 2
+                    textField.layer.borderColor = UIColor.red.cgColor
+                } else {
+                    textField.layer.borderWidth = 2
+                    textField.layer.borderColor = UIColor.white.cgColor
+                }
+                viewModel.updatePassword(passworTextField.text ?? "")
+            default:
+                break
+            }
+        }
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let nextTag = textField.tag + 1
 
@@ -261,5 +281,10 @@ extension LoginViewController: LoginViewModelDelegate {
     func didTapLoginButton() {
         let controller = HomeViewController()
         present(controller, animated: true)
+    }
+
+    func updateLoginButton(isEnable: Bool) {
+        loginButton.isEnabled = isEnable
+        loginButton.backgroundColor = isEnable ? .backgroundButtom : .gray
     }
 }
