@@ -1,8 +1,10 @@
 import UIKit
-
+import Loady
+import FirebaseAuth
 
 final class LoginViewController: UIViewController, ViewCode {
     private let viewModel = LoginViewModel()
+    private var auth: Auth?
 
     private lazy var verticalStackView: UIStackView = {
         let stack = UIStackView()
@@ -106,9 +108,18 @@ final class LoginViewController: UIViewController, ViewCode {
         return button
     }()
 
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.color = .white
+        indicator.hidesWhenStopped = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
+        auth = Auth.auth()
         dismissKeyBoard()
         commonInit()
     }
@@ -185,6 +196,8 @@ final class LoginViewController: UIViewController, ViewCode {
         verticalStackView.addArrangedSubview(loginButton)
         verticalStackView.addArrangedSubview(UIView())
 
+        loginButton.addSubview(activityIndicator)
+
         horizontalStackView.addArrangedSubview(UIView())
         horizontalStackView.addArrangedSubview(recoverPasswordButton)
     }
@@ -194,7 +207,8 @@ final class LoginViewController: UIViewController, ViewCode {
             setupVerticalStackConstraints() +
             setupImageLogoConstraints() +
             setupEmailTextFieldConstraints() +
-            setupPasswordTextFieldConstraints()
+            setupPasswordTextFieldConstraints() +
+            setupLoaderConstraints()
             )
     }
 
@@ -227,6 +241,11 @@ final class LoginViewController: UIViewController, ViewCode {
 
     private func setupPasswordTextFieldConstraints() -> [NSLayoutConstraint] {
         [passworTextField.heightAnchor.constraint(equalToConstant: 40)]
+    }
+
+    private func setupLoaderConstraints() -> [NSLayoutConstraint] {
+        [activityIndicator.centerXAnchor.constraint(equalTo: loginButton.centerXAnchor),
+         activityIndicator.centerYAnchor.constraint(equalTo: loginButton.centerYAnchor)]
     }
 
     func setupStyle() {
@@ -279,8 +298,27 @@ extension LoginViewController: UITextFieldDelegate {
 
 extension LoginViewController: LoginViewModelDelegate {
     func didTapLoginButton() {
-        let controller = HomeViewController()
-        present(controller, animated: true)
+        loginButton.setTitle("", for: .normal)
+
+        loginButton.isEnabled = false
+
+        activityIndicator.startAnimating()
+
+        auth?.signIn(withEmail: emailTextField.text ?? "", password: passworTextField.text ?? "", completion: { user, error in
+
+            self.activityIndicator.stopAnimating()
+            self.loginButton.setTitle("Logar", for: .normal)
+            self.loginButton.isEnabled = true
+
+            if let error = error {
+                let alert = UIAlertController(title: "Não foi possível logar", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+                self.present(alert, animated: true)
+            } else {
+                let controller = HomeViewController()
+                self.present(controller, animated: true)
+            }
+        })
     }
 
     func updateLoginButton(isEnable: Bool) {

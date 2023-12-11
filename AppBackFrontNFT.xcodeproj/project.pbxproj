@@ -37,6 +37,7 @@
 		E030C1372B23270100046C38 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E030C1362B23270100046C38 /* FirebaseStorage */; };
 		E030C1392B23270100046C38 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E030C1382B23270100046C38 /* FirebaseStorageCombine-Community */; };
 		E030C13B2B23294100046C38 /* UIViewControllew+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030C13A2B23294100046C38 /* UIViewControllew+Extensions.swift */; };
+		E030C13E2B277F9200046C38 /* Loady in Frameworks */ = {isa = PBXBuildFile; productRef = E030C13D2B277F9200046C38 /* Loady */; };
 		E05248C02B17733900E8260C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248BF2B17733900E8260C /* AppDelegate.swift */; };
 		E05248C22B17733900E8260C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248C12B17733900E8260C /* SceneDelegate.swift */; };
 		E05248C42B17733900E8260C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248C32B17733900E8260C /* LoginViewController.swift */; };
@@ -72,6 +73,7 @@
 			files = (
 				E030C1172B23270100046C38 /* FirebaseDatabase in Frameworks */,
 				E030C1252B23270100046C38 /* FirebaseFunctionsCombine-Community in Frameworks */,
+				E030C13E2B277F9200046C38 /* Loady in Frameworks */,
 				E030C11D2B23270100046C38 /* FirebaseFirestore in Frameworks */,
 				E030C1092B23270100046C38 /* FirebaseAnalyticsSwift in Frameworks */,
 				E030C1052B23270100046C38 /* FirebaseAnalytics in Frameworks */,
@@ -215,6 +217,7 @@
 				E030C1342B23270100046C38 /* FirebaseRemoteConfigSwift */,
 				E030C1362B23270100046C38 /* FirebaseStorage */,
 				E030C1382B23270100046C38 /* FirebaseStorageCombine-Community */,
+				E030C13D2B277F9200046C38 /* Loady */,
 			);
 			productName = AppBackFrontNFT;
 			productReference = E05248BC2B17733900E8260C /* AppBackFrontNFT.app */;
@@ -246,6 +249,7 @@
 			mainGroup = E05248B32B17733900E8260C;
 			packageReferences = (
 				E030C1032B23270100046C38 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E030C13C2B277F9200046C38 /* XCRemoteSwiftPackageReference "loady" */,
 			);
 			productRefGroup = E05248BD2B17733900E8260C /* Products */;
 			projectDirPath = "";
@@ -505,6 +509,14 @@
 				minimumVersion = 10.19.0;
 			};
 		};
+		E030C13C2B277F9200046C38 /* XCRemoteSwiftPackageReference "loady" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/farshadjahanmanesh/loady.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.8;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -642,6 +654,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E030C1032B23270100046C38 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		E030C13D2B277F9200046C38 /* Loady */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E030C13C2B277F9200046C38 /* XCRemoteSwiftPackageReference "loady" */;
+			productName = Loady;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

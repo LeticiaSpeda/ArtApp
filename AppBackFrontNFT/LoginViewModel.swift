@@ -31,8 +31,6 @@ final class LoginViewModel {
         checkButtonState()
         delegate?.didTapLoginButton()
     }
-
-
 }
 
 extension String {
