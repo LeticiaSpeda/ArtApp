@@ -47,6 +47,7 @@
 		E05248DA2B1777A200E8260C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248D92B1777A200E8260C /* UIView+Extensions.swift */; };
 		E0C9C33D2B1E61FC004D347C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9C33C2B1E61FC004D347C /* Colors.swift */; };
 		E0C9C33F2B20A362004D347C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9C33E2B20A362004D347C /* LoginViewModel.swift */; };
+		E0FB0CBC2B29FF2900A12669 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FB0CBB2B29FF2900A12669 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		E05248D92B1777A200E8260C /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		E0C9C33C2B1E61FC004D347C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E0C9C33E2B20A362004D347C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E0FB0CBB2B29FF2900A12669 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,9 +126,9 @@
 		E05248BE2B17733900E8260C /* AppBackFrontNFT */ = {
 			isa = PBXGroup;
 			children = (
+				E0FB0CBA2B29FF0200A12669 /* Login */,
+				E0FB0CBB2B29FF2900A12669 /* TabBarController.swift */,
 				E030C0FF2B2259B000046C38 /* HomeViewController.swift */,
-				E05248C32B17733900E8260C /* LoginViewController.swift */,
-				E0C9C33E2B20A362004D347C /* LoginViewModel.swift */,
 				E05248D82B17778D00E8260C /* Extensions */,
 				E05248D52B17765B00E8260C /* Helpers */,
 				E05248D42B1773BE00E8260C /* Assets */,
@@ -171,6 +173,15 @@
 				E030C13A2B23294100046C38 /* UIViewControllew+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E0FB0CBA2B29FF0200A12669 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E05248C32B17733900E8260C /* LoginViewController.swift */,
+				E0C9C33E2B20A362004D347C /* LoginViewModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 				E05248C42B17733900E8260C /* LoginViewController.swift in Sources */,
 				E05248C02B17733900E8260C /* AppDelegate.swift in Sources */,
 				E05248DA2B1777A200E8260C /* UIView+Extensions.swift in Sources */,
+				E0FB0CBC2B29FF2900A12669 /* TabBarController.swift in Sources */,
 				E030C13B2B23294100046C38 /* UIViewControllew+Extensions.swift in Sources */,
 				E030C1002B2259B000046C38 /* HomeViewController.swift in Sources */,
 				E05248C22B17733900E8260C /* SceneDelegate.swift in Sources */,

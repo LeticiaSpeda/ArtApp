@@ -315,7 +315,8 @@ extension LoginViewController: LoginViewModelDelegate {
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
                 self.present(alert, animated: true)
             } else {
-                let controller = HomeViewController()
+                let controller = TabBarController()
+                controller.modalPresentationStyle = .fullScreen
                 self.present(controller, animated: true)
             }
         })
