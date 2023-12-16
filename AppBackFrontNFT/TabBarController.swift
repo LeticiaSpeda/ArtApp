@@ -11,7 +11,7 @@ final class TabBarController: UITabBarController {
         let home = HomeViewController()
         home.tabBarItem.image = UIImage(systemName: "house.fill")
         tabBar.tintColor = .white
-        tabBar.backgroundColor = .gray
+        tabBar.backgroundColor = .black.withAlphaComponent(0.8)
 
         setViewControllers([home], animated: true)
     }
