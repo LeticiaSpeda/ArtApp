@@ -15,10 +15,11 @@ final class LoginViewController: UIViewController, ViewCode {
     }()
 
     private lazy var imageLogo: UIImageView = {
-        let image = UIImageView(image: UIImage.logo)
-        image.contentMode = .scaleAspectFit
-        image.enableViewCode()
-        return image
+        let image = UIImage(named: "logo")
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.enableViewCode()
+        return imageView
     }()
 
     private lazy var horizontalStackView: UIStackView = {

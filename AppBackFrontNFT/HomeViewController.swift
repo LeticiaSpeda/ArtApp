@@ -11,7 +11,8 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
     }()
 
     private lazy var logoImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage.logo)
+        let image = UIImage(named: "logo")
+        let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         imageView.enableViewCode()
         return imageView
