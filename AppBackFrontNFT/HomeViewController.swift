@@ -1,6 +1,6 @@
 import UIKit
 
-final class HomeViewController: UIViewController, ViewCode {
+final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate {
 
     private lazy var mainVStack: UIStackView = {
         let stack = UIStackView()
@@ -29,6 +29,30 @@ final class HomeViewController: UIViewController, ViewCode {
         return search
     }()
 
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        layout.scrollDirection = .horizontal
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.showsHorizontalScrollIndicator = false
+        collection.backgroundColor = .backgroudColorMain
+        collection.enableViewCode()
+        collection.setCollectionViewLayout(layout, animated: false)
+        collection.delegate = self
+        collection.dataSource = self
+        return collection
+    }()
+
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .backgroudColorMain
+        tableView.enableViewCode()
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         commonInit()
@@ -39,7 +63,9 @@ final class HomeViewController: UIViewController, ViewCode {
 
         mainVStack.addArrangedSubview(logoImageView)
         mainVStack.addArrangedSubview(searchBar)
-        mainVStack.addArrangedSubview(UIView())
+        mainVStack.addArrangedSubview(collectionView)
+        mainVStack.addArrangedSubview(tableView)
+
 
     }
 
@@ -54,6 +80,36 @@ final class HomeViewController: UIViewController, ViewCode {
     }
 
     func setupStyle() {
-        view.backgroundColor = UIColor(red: 24/255, green: 26/255, blue: 1/255, alpha: 1.0)
+        view.backgroundColor = .backgroudColorMain
+    }
+}
+
+
+extension HomeViewController: UITabBarDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
+
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
+
+    func collectionView(
+            _ collectionView: UICollectionView,
+            layout collectionViewLayout: UICollectionViewLayout,
+            sizeForItemAt indexPath: IndexPath
+        ) -> CGSize {
+        return CGSize(width: 0, height: 0)
     }
 }
