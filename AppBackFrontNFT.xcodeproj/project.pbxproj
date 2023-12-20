@@ -39,6 +39,11 @@
 		E030C1392B23270100046C38 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E030C1382B23270100046C38 /* FirebaseStorageCombine-Community */; };
 		E030C13B2B23294100046C38 /* UIViewControllew+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030C13A2B23294100046C38 /* UIViewControllew+Extensions.swift */; };
 		E030C13E2B277F9200046C38 /* Loady in Frameworks */ = {isa = PBXBuildFile; productRef = E030C13D2B277F9200046C38 /* Loady */; };
+		E04B2B262B30D379001153B3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B2B252B30D379001153B3 /* HomeViewModel.swift */; };
+		E04B2B282B31CFAA001153B3 /* GenericService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B2B272B31CFAA001153B3 /* GenericService.swift */; };
+		E04B2B2A2B31D0F1001153B3 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B2B292B31D0F1001153B3 /* HomeService.swift */; };
+		E04B2B2D2B31D58B001153B3 /* HomeData.json in Resources */ = {isa = PBXBuildFile; fileRef = E04B2B2C2B31D58B001153B3 /* HomeData.json */; };
+		E04B2B302B31D675001153B3 /* NFTData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B2B2F2B31D675001153B3 /* NFTData.swift */; };
 		E05248C02B17733900E8260C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248BF2B17733900E8260C /* AppDelegate.swift */; };
 		E05248C22B17733900E8260C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248C12B17733900E8260C /* SceneDelegate.swift */; };
 		E05248C42B17733900E8260C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248C32B17733900E8260C /* LoginViewController.swift */; };
@@ -56,6 +61,11 @@
 		E030C0FF2B2259B000046C38 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E030C1012B23261200046C38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E030C13A2B23294100046C38 /* UIViewControllew+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllew+Extensions.swift"; sourceTree = "<group>"; };
+		E04B2B252B30D379001153B3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E04B2B272B31CFAA001153B3 /* GenericService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericService.swift; sourceTree = "<group>"; };
+		E04B2B292B31D0F1001153B3 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		E04B2B2C2B31D58B001153B3 /* HomeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomeData.json; sourceTree = "<group>"; };
+		E04B2B2F2B31D675001153B3 /* NFTData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFTData.swift; sourceTree = "<group>"; };
 		E05248BC2B17733900E8260C /* AppBackFrontNFT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppBackFrontNFT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05248BF2B17733900E8260C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E05248C12B17733900E8260C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +139,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E04B2B2B2B31D0F8001153B3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E04B2B292B31D0F1001153B3 /* HomeService.swift */,
+				E04B2B252B30D379001153B3 /* HomeViewModel.swift */,
+				E030C0FF2B2259B000046C38 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E04B2B2E2B31D594001153B3 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				E04B2B2C2B31D58B001153B3 /* HomeData.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		E04B2B312B31D691001153B3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E04B2B2F2B31D675001153B3 /* NFTData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		E05248B32B17733900E8260C = {
 			isa = PBXGroup;
 			children = (
@@ -151,8 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				E0FB0CBA2B29FF0200A12669 /* Login */,
-				E0FB0CBB2B29FF2900A12669 /* TabBarController.swift */,
-				E030C0FF2B2259B000046C38 /* HomeViewController.swift */,
 				E05248D82B17778D00E8260C /* Extensions */,
 				E05248D52B17765B00E8260C /* Helpers */,
 				E05248D42B1773BE00E8260C /* Assets */,
@@ -202,8 +236,13 @@
 		E0FB0CBA2B29FF0200A12669 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E0FB0CBB2B29FF2900A12669 /* TabBarController.swift */,
 				E05248C32B17733900E8260C /* LoginViewController.swift */,
 				E0C9C33E2B20A362004D347C /* LoginViewModel.swift */,
+				E04B2B272B31CFAA001153B3 /* GenericService.swift */,
+				E04B2B312B31D691001153B3 /* Data */,
+				E04B2B2E2B31D594001153B3 /* JSON */,
+				E04B2B2B2B31D0F8001153B3 /* Home */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -302,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E04B2B2D2B31D58B001153B3 /* HomeData.json in Resources */,
 				E05248CC2B17733B00E8260C /* LaunchScreen.storyboard in Resources */,
 				E05248C92B17733B00E8260C /* Assets.xcassets in Resources */,
 				E030C1022B23261200046C38 /* GoogleService-Info.plist in Resources */,
@@ -358,12 +398,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E05248C42B17733900E8260C /* LoginViewController.swift in Sources */,
+				E04B2B262B30D379001153B3 /* HomeViewModel.swift in Sources */,
 				E05248C02B17733900E8260C /* AppDelegate.swift in Sources */,
 				E05248DA2B1777A200E8260C /* UIView+Extensions.swift in Sources */,
 				E0FB0CBC2B29FF2900A12669 /* TabBarController.swift in Sources */,
+				E04B2B282B31CFAA001153B3 /* GenericService.swift in Sources */,
 				E030C13B2B23294100046C38 /* UIViewControllew+Extensions.swift in Sources */,
 				E030C1002B2259B000046C38 /* HomeViewController.swift in Sources */,
+				E04B2B2A2B31D0F1001153B3 /* HomeService.swift in Sources */,
 				E05248C22B17733900E8260C /* SceneDelegate.swift in Sources */,
+				E04B2B302B31D675001153B3 /* NFTData.swift in Sources */,
 				E05248D72B17766B00E8260C /* ViewCode.swift in Sources */,
 				E0C9C33D2B1E61FC004D347C /* Colors.swift in Sources */,
 				E0C9C33F2B20A362004D347C /* LoginViewModel.swift in Sources */,
