@@ -5,6 +5,7 @@ protocol HomeViewModeling {
     var nftData: NFTData { get }
     var delegate: HomeViewModelDelegate? { get set}
     var numberOfItemsSection: Int { get }
+    var sizeForItemAt: CGSize { get }
     func fetchRequest(_ typeFetch: Typefeatch)
     func loadCurrentFilterNft(indexPath: IndexPath) -> FilterNft
 }
@@ -15,11 +16,13 @@ protocol HomeViewModelDelegate: AnyObject {
 }
 
 final class HomeViewModel: HomeViewModeling {
-
     var service: HomeServiceModeling
     var nftData: NFTData
     var numberOfItemsSection: Int {
         return nftData.filterListNft?.count ?? 0
+    }
+    var sizeForItemAt: CGSize {
+        return CGSize(width: 110, height: 60)
     }
 
     weak var delegate: HomeViewModelDelegate?
