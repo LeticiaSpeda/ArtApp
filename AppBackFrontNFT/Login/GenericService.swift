@@ -10,3 +10,8 @@ enum Error: Swift.Error {
     case fileDecodingFaliled(name: String, Swift.Error)
     case errorRequest(AFError)
 }
+
+enum Typefeatch {
+    case mock
+    case request
+}
