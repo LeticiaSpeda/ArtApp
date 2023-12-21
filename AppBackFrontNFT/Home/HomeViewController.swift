@@ -1,9 +1,9 @@
 import UIKit
 
 final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate {
-    
+
     private var viewModel: HomeViewModeling
-    
+
     private lazy var mainVStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -11,7 +11,7 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         stack.enableViewCode()
         return stack
     }()
-    
+
     private lazy var logoImageView: UIImageView = {
         let image = UIImage(named: "logo")
         let imageView = UIImageView(image: image)
@@ -19,7 +19,7 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         imageView.enableViewCode()
         return imageView
     }()
-    
+
     private lazy var searchBar: UISearchBar = {
         let search = UISearchBar()
         search.layer.cornerRadius = 10
@@ -29,9 +29,10 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         search.searchTextField.textColor = .black
         search.searchTextField.attributedPlaceholder = NSAttributedString(string: "Pesquise pelo nome", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
         search.searchTextField.leftView?.tintColor = .black
+        search.barTintColor = .backgroudColorMain
         return search
     }()
-    
+
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
@@ -41,12 +42,10 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         collection.backgroundColor = .backgroudColorMain
         collection.enableViewCode()
         collection.setCollectionViewLayout(layout, animated: false)
-        collection.delegate = self
-        collection.dataSource = self
         collection.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
         return collection
     }()
-    
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .backgroudColorMain
@@ -56,41 +55,52 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         tableView.dataSource = self
         return tableView
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        viewModel.fetchRequest(.mock)
+        viewModel.fetchRequest(.request)
         commonInit()
     }
-    
+
     init(viewModel: HomeViewModeling) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
-    
+
     func setupHierarchy() {
         view.addSubview(mainVStack)
-        
+
         mainVStack.addArrangedSubview(logoImageView)
         mainVStack.addArrangedSubview(searchBar)
         mainVStack.addArrangedSubview(collectionView)
         mainVStack.addArrangedSubview(tableView)
     }
-    
+
     func setupConstraints() {
         NSLayoutConstraint.activate([
             mainVStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             mainVStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             mainVStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             mainVStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            logoImageView.heightAnchor.constraint(equalToConstant: 50)
+
+            logoImageView.heightAnchor.constraint(equalToConstant: 50),
+
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 14),
+            collectionView.heightAnchor.constraint(equalToConstant: 50),
+            collectionView.leadingAnchor.constraint(equalTo: mainVStack.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: mainVStack.trailingAnchor),
+
+            tableView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 14),
+            tableView.bottomAnchor.constraint(equalTo: mainVStack.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: mainVStack.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: mainVStack.trailingAnchor)
         ])
     }
-    
+
     func setupStyle() {
         view.backgroundColor = .backgroudColorMain
     }
@@ -98,21 +108,20 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
 
 extension HomeViewController: HomeViewModelDelegate {
     func success() {
-        print("FOI SUCESSO")
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
-    
+
     func error() {
         print("FOI FALHA")
     }
-
 }
-
 
 extension HomeViewController: UITabBarDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
@@ -121,18 +130,21 @@ extension HomeViewController: UITabBarDelegate, UITableViewDataSource {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfItemsSection
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell
+
+        cell?.setupCell(filter: viewModel.loadCurrentFilterNft(indexPath: indexPath))
+        return cell ?? UICollectionViewCell()
     }
-    
+
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(width: 0, height: 0)
+        return CGSize(width: 100, height: 34)
     }
 }
