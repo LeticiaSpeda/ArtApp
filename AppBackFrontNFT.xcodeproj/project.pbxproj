@@ -165,6 +165,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		E04B2B342B346A25001153B3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E04B2B272B31CFAA001153B3 /* GenericService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		E05248B32B17733900E8260C = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +195,10 @@
 			isa = PBXGroup;
 			children = (
 				E0FB0CBA2B29FF0200A12669 /* Login */,
+				E04B2B312B31D691001153B3 /* Data */,
+				E04B2B2E2B31D594001153B3 /* JSON */,
+				E04B2B2B2B31D0F8001153B3 /* Home */,
+				E04B2B342B346A25001153B3 /* Service */,
 				E05248D82B17778D00E8260C /* Extensions */,
 				E05248D52B17765B00E8260C /* Helpers */,
 				E05248D42B1773BE00E8260C /* Assets */,
@@ -239,10 +251,6 @@
 				E0FB0CBB2B29FF2900A12669 /* TabBarController.swift */,
 				E05248C32B17733900E8260C /* LoginViewController.swift */,
 				E0C9C33E2B20A362004D347C /* LoginViewModel.swift */,
-				E04B2B272B31CFAA001153B3 /* GenericService.swift */,
-				E04B2B312B31D691001153B3 /* Data */,
-				E04B2B2E2B31D594001153B3 /* JSON */,
-				E04B2B2B2B31D0F8001153B3 /* Home */,
 			);
 			path = Login;
 			sourceTree = "<group>";
