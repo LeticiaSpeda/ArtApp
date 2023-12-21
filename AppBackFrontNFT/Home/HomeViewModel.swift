@@ -1,7 +1,6 @@
 import Foundation
 
 protocol HomeViewModeling {
-    var service: HomeServiceModeling { get }
     var nftData: NFTData { get }
     var delegate: HomeViewModelDelegate? { get set}
     var numberOfItemsSection: Int { get }
@@ -16,13 +15,14 @@ protocol HomeViewModelDelegate: AnyObject {
 }
 
 final class HomeViewModel: HomeViewModeling {
-    var service: HomeServiceModeling
+    private let service: HomeServiceModeling
+
     var nftData: NFTData
     var numberOfItemsSection: Int {
         return nftData.filterListNft?.count ?? 0
     }
     var sizeForItemAt: CGSize {
-        return CGSize(width: 110, height: 60)
+        return CGSize(width: 110, height: 34)
     }
 
     weak var delegate: HomeViewModelDelegate?

@@ -24,7 +24,7 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         let search = UISearchBar()
         search.layer.cornerRadius = 10
         search.clipsToBounds = true
-        search.searchTextField.backgroundColor = .white.withAlphaComponent(0.6)
+        search.searchTextField.backgroundColor = .white.withAlphaComponent(0.8)
         search.searchTextField.tintColor = .black
         search.searchTextField.textColor = .black
         search.searchTextField.attributedPlaceholder = NSAttributedString(string: "Pesquise pelo nome", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
