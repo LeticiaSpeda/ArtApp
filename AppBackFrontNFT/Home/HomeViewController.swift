@@ -43,6 +43,7 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         collection.setCollectionViewLayout(layout, animated: false)
         collection.delegate = self
         collection.dataSource = self
+        collection.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
         return collection
     }()
     
