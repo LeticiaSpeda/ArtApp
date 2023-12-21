@@ -145,6 +145,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(width: 100, height: 34)
+        return viewModel.sizeForItemAt
     }
 }
