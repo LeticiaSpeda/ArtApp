@@ -4,7 +4,9 @@ protocol HomeViewModeling {
     var service: HomeServiceModeling { get }
     var nftData: NFTData { get }
     var delegate: HomeViewModelDelegate? { get set}
+    var numberOfItemsSection: Int { get }
     func fetchRequest(_ typeFetch: Typefeatch)
+    func loadCurrentFilterNft(indexPath: IndexPath) -> FilterNft
 }
 
 protocol HomeViewModelDelegate: AnyObject {
@@ -13,13 +15,22 @@ protocol HomeViewModelDelegate: AnyObject {
 }
 
 final class HomeViewModel: HomeViewModeling {
+
     var service: HomeServiceModeling
     var nftData: NFTData
+    var numberOfItemsSection: Int {
+        return nftData.filterListNft?.count ?? 0
+    }
+
     weak var delegate: HomeViewModelDelegate?
 
     init(service: HomeServiceModeling, nftData: NFTData) {
         self.service = service
         self.nftData = nftData
+    }
+
+    func loadCurrentFilterNft(indexPath: IndexPath) -> FilterNft {
+        return nftData.filterListNft?[indexPath.row] ?? FilterNft()
     }
 
     func fetchRequest(_ typeFetch: Typefeatch) {

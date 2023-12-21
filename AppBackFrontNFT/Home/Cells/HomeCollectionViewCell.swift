@@ -5,7 +5,6 @@ final class HomeCollectionViewCell: UICollectionViewCell, ViewCode {
 
     private lazy var filterLabel: UILabel = {
         let label = UILabel()
-        label .backgroundColor = .backgroundLabel
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 14)
         label.clipsToBounds = true
@@ -14,7 +13,6 @@ final class HomeCollectionViewCell: UICollectionViewCell, ViewCode {
         label.enableViewCode()
         return label
     }()
-
 
     override init(frame: CGRect) {
         super.init(frame: frame)
