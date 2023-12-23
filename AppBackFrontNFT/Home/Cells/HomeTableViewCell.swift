@@ -1,14 +1,22 @@
 import UIKit
+import AlamofireImage
 
 final class HomeTableViewCell: UITableViewCell, ViewCode {
     static let identifier = String(describing: HomeTableViewCell.self)
 
-    private lazy var mainVerticalStack: UIStackView = {
+    private lazy var mainHorizontalStack: UIStackView = {
         let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 10
+        stack.axis = .horizontal
+        stack.spacing = 8
         stack.enableViewCode()
         return stack
+    }()
+
+    private lazy var mainView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black.withAlphaComponent(0.4)
+        view.enableViewCode()
+        return view
     }()
 
     private lazy var nftImageView: UIImageView = {
@@ -69,84 +77,65 @@ final class HomeTableViewCell: UITableViewCell, ViewCode {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        commonInit()
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
 
-    func setupHierarchy() {
-        addSubview(mainVerticalStack)
 
-        mainVerticalStack.addArrangedSubview(nftImageView)
-        mainVerticalStack.addArrangedSubview(userImageView)
-        mainVerticalStack.addArrangedSubview(ownerByPrice)
-        mainVerticalStack.addArrangedSubview(userLabel)
-        mainVerticalStack.addArrangedSubview(priceLabel)
-        mainVerticalStack.addArrangedSubview(priceValueLabel)
+
+}
+
+extension HomeTableViewCell {
+    func setupHierarchy() {
+        addSubview(nftImageView)
+
     }
 
     func setupConstraints() {
         NSLayoutConstraint.activate(
-            mainVerticalStackConstraints() +
-            nftImageViewConstraints() +
-            userImageViewConstraints() +
-            ownerByPriceConstraints() +
-            userLabelConstraints() +
-            priceLabelConstraints()
+            [
+                nftImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+                nftImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                nftImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                nftImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+
+            ]
         )
-    }
-
-    private func mainVerticalStackConstraints() -> [NSLayoutConstraint] {
-        [
-        mainVerticalStack.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-        mainVerticalStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-        mainVerticalStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-        mainVerticalStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
-        ]
-    }
-
-    private func nftImageViewConstraints() -> [NSLayoutConstraint] {
-        [ nftImageView.heightAnchor.constraint(equalToConstant: 270) ]
-    }
-
-    private func userImageViewConstraints() -> [NSLayoutConstraint] {
-        [
-            userImageView.heightAnchor.constraint(equalToConstant: 48),
-            userImageView.widthAnchor.constraint(equalToConstant: 48)
-        ]
-    }
-
-    private func ownerByPriceConstraints() -> [NSLayoutConstraint] {
-        [ ownerByPrice.leadingAnchor.constraint(
-            equalTo: userImageView.trailingAnchor,
-            constant: 8
-        )]
-    }
-
-    private func userLabelConstraints() -> [NSLayoutConstraint] {
-        [ userLabel.leadingAnchor.constraint(
-            equalTo: userImageView.trailingAnchor,
-            constant: 8
-        )]
-    }
-
-    private func priceLabelConstraints() -> [NSLayoutConstraint] {
-        [ priceLabel.trailingAnchor.constraint(
-            equalTo: mainVerticalStack.trailingAnchor,
-            constant: -15
-        )]
-    }
-
-    private func priceValueLabelConstraints() -> [NSLayoutConstraint] {
-        [ priceValueLabel.trailingAnchor.constraint(
-            equalTo: mainVerticalStack.trailingAnchor,
-            constant: -15
-        )]
     }
 
     func setupStyle() {
         backgroundColor = .backgroudColorMain
         layer.cornerRadius = 18
         clipsToBounds = true
+        
+    }
+}
+
+extension HomeTableViewCell {
+    func setupCell(data: Nft) {
+
+        if let urlNFT = URL(string: data.nftImage ?? ""),let urlUser = URL(string: data.userImage ?? "") {
+
+            nftImageView.af.setImage(
+                withURL: urlNFT,
+                placeholderImage: UIImage(systemName: "photo")?.withTintColor(.black)
+            )
+
+            nftImageView.backgroundColor = .white
+
+            userImageView.af.setImage(
+                withURL: urlUser,
+                placeholderImage: UIImage(systemName: "person.circle.fill")?.withTintColor(.black)
+            )
+
+            userImageView.backgroundColor = .white
+        }
+
+        priceLabel.text = data.price
+        priceValueLabel.text = "\(data.nftPrice ?? 0.0) ETH"
+        ownerByPrice.text = data.ownedBy
+        userLabel.text = data.userName
     }
 }

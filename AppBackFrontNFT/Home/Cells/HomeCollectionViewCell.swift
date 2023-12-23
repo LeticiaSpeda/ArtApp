@@ -41,7 +41,6 @@ final class HomeCollectionViewCell: UICollectionViewCell, ViewCode {
             filterLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             filterLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             filterLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
-
         ])
     }
 }

@@ -42,7 +42,10 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         collection.backgroundColor = .backgroudColorMain
         collection.enableViewCode()
         collection.setCollectionViewLayout(layout, animated: false)
-        collection.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
+        collection.register(
+            HomeCollectionViewCell.self,
+            forCellWithReuseIdentifier: HomeCollectionViewCell.identifier
+        )
         return collection
     }()
 
@@ -51,8 +54,11 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         tableView.backgroundColor = .backgroudColorMain
         tableView.enableViewCode()
         tableView.separatorStyle = .none
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.showsVerticalScrollIndicator = false
+        tableView.register(
+            HomeTableViewCell.self,
+            forCellReuseIdentifier: HomeTableViewCell.identifier
+        )
         return tableView
     }()
 
@@ -110,6 +116,9 @@ extension HomeViewController: HomeViewModelDelegate {
     func success() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
     }
 
     func error() {
@@ -119,11 +128,18 @@ extension HomeViewController: HomeViewModelDelegate {
 
 extension HomeViewController: UITabBarDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfRowsInSection
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+
+         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
+        cell?.setupCell(data: viewModel.loadCurrentNft(indexPath: indexPath))
+            return cell ?? UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return viewModel.heightForRow
     }
 }
 
