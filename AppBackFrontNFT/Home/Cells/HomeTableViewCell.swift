@@ -25,6 +25,7 @@ final class HomeTableViewCell: UITableViewCell, ViewCode {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 25
+        imageView.tintColor = .black
         imageView.enableViewCode()
         return imageView
     }()

@@ -114,11 +114,13 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
 
 extension HomeViewController: HomeViewModelDelegate {
     func success() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.delegate = self
+            self.collectionView.dataSource = self
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+            self.tableView.reloadData()
+        }
     }
 
     func error() {
