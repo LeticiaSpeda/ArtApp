@@ -166,6 +166,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     ) -> CGSize {
         return viewModel.sizeForItemAt
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.setFilter(indexPath: indexPath, searchText: searchBar.text ?? "")
+        collectionView.reloadData()
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
 }
 
 extension HomeViewController: UISearchBarDelegate {

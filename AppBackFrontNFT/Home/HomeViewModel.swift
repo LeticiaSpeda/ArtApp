@@ -13,6 +13,7 @@ protocol HomeViewModeling {
     func loadCurrentFilterNft(indexPath: IndexPath) -> FilterNft
     func loadCurrentNft(indexPath: IndexPath) -> Nft
     func filterSearchText( _ text: String)
+    func setFilter(indexPath: IndexPath, searchText: String)
 }
 
 protocol HomeViewModelDelegate: AnyObject {
@@ -68,6 +69,21 @@ final class HomeViewModel: HomeViewModeling {
                 return nft.userName?.lowercased().contains(text.lowercased()) ?? false
             })
         }
+    }
+
+    func setFilter(indexPath: IndexPath, searchText: String) {
+        var filterNFT: [FilterNft] = []
+        for (index, value) in (searchNftData.filterListNft ?? []).enumerated() {
+            var type = value
+            if index == indexPath.row {
+                type.isSelected = true
+            } else {
+                type.isSelected = false
+            }
+            filterNFT.append(type)
+        }
+
+        searchNftData.filterListNft = filterNFT
     }
 
     func fetchRequest(_ typeFetch: Typefeatch) {
