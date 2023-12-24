@@ -30,6 +30,7 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         search.searchTextField.attributedPlaceholder = NSAttributedString(string: "Pesquise pelo nome", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
         search.searchTextField.leftView?.tintColor = .black
         search.barTintColor = .backgroudColorMain
+        search.delegate = self
         return search
     }()
 
@@ -164,5 +165,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         return viewModel.sizeForItemAt
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.filterSearchText(searchText)
+        tableView.reloadData()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }

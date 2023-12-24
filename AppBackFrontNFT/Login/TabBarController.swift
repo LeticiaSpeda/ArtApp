@@ -8,7 +8,7 @@ final class TabBarController: UITabBarController {
     }
     
     private func setupBar() {
-        let home = HomeViewController(viewModel: HomeViewModel(service: HomeService(), nftData: NFTData()))
+        let home = HomeViewController(viewModel: HomeViewModel(service: HomeService(), nftData: NFTData(), searchNftData: NFTData()))
         home.tabBarItem.image = UIImage(systemName: "house.fill")
         tabBar.tintColor = .white
         tabBar.backgroundColor = .black.withAlphaComponent(0.8)
