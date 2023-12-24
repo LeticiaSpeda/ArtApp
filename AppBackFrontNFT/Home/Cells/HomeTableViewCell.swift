@@ -4,17 +4,9 @@ import AlamofireImage
 final class HomeTableViewCell: UITableViewCell, ViewCode {
     static let identifier = String(describing: HomeTableViewCell.self)
 
-    private lazy var mainHorizontalStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.spacing = 8
-        stack.enableViewCode()
-        return stack
-    }()
-
     private lazy var mainView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black.withAlphaComponent(0.4)
+        view.backgroundColor = .black.withAlphaComponent(0.6)
         view.enableViewCode()
         return view
     }()
@@ -32,18 +24,15 @@ final class HomeTableViewCell: UITableViewCell, ViewCode {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 24
+        imageView.layer.cornerRadius = 25
         imageView.enableViewCode()
         return imageView
     }()
-
+    
     private lazy var ownerByPrice: UILabel = {
         let label = UILabel()
         label.textColor = .textColorLabel
         label.font = .systemFont(ofSize: 14, weight: .semibold)
-        label.textAlignment = .center
-        label.backgroundColor = .backgroundLabel
-        label.enableViewCode()
         return label
     }()
 
@@ -51,9 +40,6 @@ final class HomeTableViewCell: UITableViewCell, ViewCode {
         let label = UILabel()
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 14)
-        label.textAlignment = .center
-        label.backgroundColor = .backgroundLabel
-        label.enableViewCode()
         return label
     }()
 
@@ -61,18 +47,37 @@ final class HomeTableViewCell: UITableViewCell, ViewCode {
         let label = UILabel()
         label.textColor = .textColorLabel
         label.font = .systemFont(ofSize: 12, weight: .semibold)
-        label.textAlignment = .center
-        label.enableViewCode()
         return label
     }()
+
 
     private lazy var priceValueLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.font = .systemFont(ofSize: 14, weight: .semibold)
-        label.textAlignment = .center
-        label.enableViewCode()
         return label
+    }()
+
+    private lazy var leadingVStack: UIStackView = {
+        let s = UIStackView(arrangedSubviews: [ownerByPrice, userLabel])
+        s.enableViewCode()
+        s.axis = .vertical
+        return s
+    }()
+
+    private lazy var trailingVStack: UIStackView = {
+        let s = UIStackView(arrangedSubviews: [priceLabel, priceValueLabel])
+        s.enableViewCode()
+        s.axis = .vertical
+        return s
+    }()
+
+    private lazy var hStack: UIStackView = {
+        let s = UIStackView(arrangedSubviews: [userImageView, leadingVStack, trailingVStack])
+        s.enableViewCode()
+        s.axis = .horizontal
+        s.spacing = 12
+        return s
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -83,14 +88,13 @@ final class HomeTableViewCell: UITableViewCell, ViewCode {
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
 
-
-
 }
 
 extension HomeTableViewCell {
     func setupHierarchy() {
         addSubview(nftImageView)
-
+        nftImageView.addSubview(mainView)
+        mainView.addSubview(hStack)
     }
 
     func setupConstraints() {
@@ -101,6 +105,17 @@ extension HomeTableViewCell {
                 nftImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
                 nftImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
 
+                mainView.bottomAnchor.constraint(equalTo: nftImageView.bottomAnchor),
+                mainView.leadingAnchor.constraint(equalTo: nftImageView.leadingAnchor),
+                mainView.trailingAnchor.constraint(equalTo: nftImageView.trailingAnchor),
+                mainView.heightAnchor.constraint(equalToConstant: 70),
+
+                hStack.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 10),
+                hStack.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 16),
+                hStack.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -16),
+                hStack.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -10),
+
+                userImageView.widthAnchor.constraint(equalToConstant: 50),
             ]
         )
     }
