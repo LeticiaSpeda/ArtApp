@@ -8,6 +8,7 @@ protocol HomeViewModeling {
     var numberOfRowsInSection: Int { get }
     var sizeForItemAt: CGSize { get }
     var heightForRow: CGFloat { get }
+    var typeFilter: Int? { get }
 
     func fetchRequest(_ typeFetch: Typefeatch)
     func loadCurrentFilterNft(indexPath: IndexPath) -> FilterNft
@@ -22,7 +23,6 @@ protocol HomeViewModelDelegate: AnyObject {
 }
 
 final class HomeViewModel: HomeViewModeling {
-
     private let service: HomeServiceModeling
 
     var nftData: NFTData
@@ -44,6 +44,10 @@ final class HomeViewModel: HomeViewModeling {
         return 360
     }
 
+    var typeFilter: Int? {
+        return searchNftData.filterListNft?.first(where: { $0.isSelected == true })?.id
+    }
+
     weak var delegate: HomeViewModelDelegate?
 
     init(service: HomeServiceModeling, nftData: NFTData, searchNftData: NFTData, delegate: HomeViewModelDelegate? = nil) {
@@ -62,10 +66,18 @@ final class HomeViewModel: HomeViewModeling {
     }
 
     func filterSearchText( _ text: String) {
-        if text.isEmpty {
-            searchNftData.nftList = nftData.nftList
+        var nftList: [Nft] = []
+
+        if typeFilter == 0 {
+            nftList = nftData.nftList ?? []
         } else {
-            searchNftData.nftList = nftData.nftList?.filter({ nft in
+            nftList = nftData.nftList?.filter({ $0.type == typeFilter ?? 0 }) ?? []
+        }
+
+        if text.isEmpty {
+            searchNftData.nftList = nftList
+        } else {
+            searchNftData.nftList = nftList.filter({ nft in
                 return nft.userName?.lowercased().contains(text.lowercased()) ?? false
             })
         }
@@ -84,6 +96,8 @@ final class HomeViewModel: HomeViewModeling {
         }
 
         searchNftData.filterListNft = filterNFT
+        filterSearchText(searchText)
+
     }
 
     func fetchRequest(_ typeFetch: Typefeatch) {
