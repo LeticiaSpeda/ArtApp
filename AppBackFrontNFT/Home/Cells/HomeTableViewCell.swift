@@ -125,7 +125,8 @@ extension HomeTableViewCell {
         backgroundColor = .backgroudColorMain
         layer.cornerRadius = 18
         clipsToBounds = true
-        
+        selectionStyle = .none
+
     }
 }
 
