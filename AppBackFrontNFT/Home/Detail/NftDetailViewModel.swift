@@ -6,9 +6,9 @@ protocol NftDetailViewModeling {
     var nftImage: String { get }
     var idNft: Int { get }
     var nftTitleLabel: String { get }
-    var nftdescription: String { get }
+    var nftDescription: String { get }
 
-    func heightForRowAt(indexPath: IndexPath) -> CGFloat
+    func heightForRowAt(indexPath: IndexPath, width: CGFloat) -> CGFloat
 }
 
 final class NftDetailViewModel: NftDetailViewModeling {
@@ -30,7 +30,7 @@ final class NftDetailViewModel: NftDetailViewModeling {
         return nft.nftNameImage ?? ""
     }
 
-    var nftdescription: String {
+    var nftDescription: String {
         return nft.nftDescription ?? ""
     }
 
@@ -38,12 +38,13 @@ final class NftDetailViewModel: NftDetailViewModeling {
         self.nft = nft
     }
 
-    func heightForRowAt(indexPath: IndexPath) -> CGFloat {
+    func heightForRowAt(indexPath: IndexPath, width: CGFloat) -> CGFloat {
         switch NftDetail(rawValue: indexPath.row) {
         case .nftImage:
             return 400
         case .description:
-            return 250
+            let totalLabel = nftDescription.height(withConstrainedWidth: width - 40, font: .systemFont(ofSize: 18))
+            return 5 + totalLabel + 5 + 30 + 5 + 24 + 10 + 10
         default:
             return 0
         }
