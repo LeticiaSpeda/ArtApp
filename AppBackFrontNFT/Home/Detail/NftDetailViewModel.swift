@@ -43,8 +43,7 @@ final class NftDetailViewModel: NftDetailViewModeling {
         case .nftImage:
             return 400
         case .description:
-            let totalLabel = nftDescription.height(withConstrainedWidth: width - 40, font: .systemFont(ofSize: 18))
-            return 5 + totalLabel + 5 + 30 + 5 + 24 + 10 + 10
+            return nftDescription.height(withConstrainedWidth: width - 40, font: .systemFont(ofSize: 18)) + 89
         default:
             return 0
         }
