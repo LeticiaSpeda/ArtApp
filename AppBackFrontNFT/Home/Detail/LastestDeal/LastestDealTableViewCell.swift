@@ -3,7 +3,7 @@ import UIKit
 final class LastestDealTableViewCell: UITableViewCell, ViewCode {
     static let identifier = String(describing: LastestDealTableViewCell.self)
 
-    private var viewModel: LastestDealTableViewCellViewModeling
+    var viewModel: LastestDealTableViewCellViewModeling? = LastestDealTableViewCellViewModel()
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -23,18 +23,17 @@ final class LastestDealTableViewCell: UITableViewCell, ViewCode {
         return table
     }()
 
-    init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, viewModel: LastestDealTableViewCellViewModeling) {
-        self.viewModel = viewModel
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        commonInit()
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
 
     func setupCell(data: Nft) {
-        viewModel.setNft(nft: data)
-        titleLabel.text = viewModel.title
-
+        viewModel?.setNft(nft: data)
+        titleLabel.text = viewModel?.title
     }
 
     func setupHierarchy() {
@@ -53,20 +52,24 @@ final class LastestDealTableViewCell: UITableViewCell, ViewCode {
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
         ])
     }
-}
 
+    func setupStyle() {
+        backgroundColor = .backgroudColorMain
+        selectionStyle = .none
+    }
+}
 
 extension LastestDealTableViewCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection
+        return viewModel?.numberOfRowsInSection ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         return UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel.heightForRowAt
+        return viewModel?.heightForRowAt ?? 0
     }
-
 }
