@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B4B5C6A3EE702BFF8CF4FA49 /* Pods_AppBackFrontNFT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5F0FB87CF58F63CD216BC0 /* Pods_AppBackFrontNFT.framework */; };
 		E02D17B12B419E5800D062BE /* NftDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D17B02B419E5800D062BE /* NftDescriptionTableViewCell.swift */; };
+		E02D17B32B41AFCF00D062BE /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D17B22B41AFCF00D062BE /* String+Extensions.swift */; };
 		E030C1002B2259B000046C38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030C0FF2B2259B000046C38 /* HomeViewController.swift */; };
 		E030C1022B23261200046C38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E030C1012B23261200046C38 /* GoogleService-Info.plist */; };
 		E030C1052B23270100046C38 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E030C1042B23270100046C38 /* FirebaseAnalytics */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		D69F8F2C8494100C0B2607D5 /* Pods-AppBackFrontNFT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppBackFrontNFT.debug.xcconfig"; path = "Target Support Files/Pods-AppBackFrontNFT/Pods-AppBackFrontNFT.debug.xcconfig"; sourceTree = "<group>"; };
 		E02D17B02B419E5800D062BE /* NftDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		E02D17B22B41AFCF00D062BE /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		E030C0FF2B2259B000046C38 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E030C1012B23261200046C38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E030C13A2B23294100046C38 /* UIViewControllew+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllew+Extensions.swift"; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			children = (
 				E05248D92B1777A200E8260C /* UIView+Extensions.swift */,
 				E030C13A2B23294100046C38 /* UIViewControllew+Extensions.swift */,
+				E02D17B22B41AFCF00D062BE /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E07479022B40B13F00E04FE4 /* NftDetailTableViewCell.swift in Sources */,
+				E02D17B32B41AFCF00D062BE /* String+Extensions.swift in Sources */,
 				E05248C42B17733900E8260C /* LoginViewController.swift in Sources */,
 				E04B2B262B30D379001153B3 /* HomeViewModel.swift in Sources */,
 				E07479002B40875300E04FE4 /* NftDetailViewModel.swift in Sources */,
