@@ -64,7 +64,7 @@ extension NftDetailViewController: UITableViewDelegate, UITableViewDataSource {
         case .description:
 
             let cell = tableView.dequeueReusableCell(withIdentifier: NftDescriptionTableViewCell.identifier, for: indexPath) as? NftDescriptionTableViewCell
-            cell?.setupCell(id: viewModel.idNft, title: viewModel.nftTitleLabel, description: viewModel.nftdescription)
+            cell?.setupCell(id: viewModel.idNft, title: viewModel.nftTitleLabel, description: viewModel.nftDescription)
             return cell ?? UITableViewCell()
 
         default:
@@ -73,7 +73,7 @@ extension NftDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel.heightForRowAt(indexPath: indexPath)
+        return viewModel.heightForRowAt(indexPath: indexPath, width: view.frame.width)
     }
 }
 
