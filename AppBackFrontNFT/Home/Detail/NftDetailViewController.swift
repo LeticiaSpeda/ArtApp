@@ -17,7 +17,6 @@ final class NftDetailViewController: UIViewController, ViewCode {
         table.dataSource = self
         table.register(NftDetailTableViewCell.self, forCellReuseIdentifier: NftDetailTableViewCell.identifier)
         table.register(NftDescriptionTableViewCell.self, forCellReuseIdentifier: NftDescriptionTableViewCell.identifier)
-
         table.register(LastestDealTableViewCell.self, forCellReuseIdentifier: LastestDealTableViewCell.identifier)
         table.enableViewCode()
         return table
@@ -71,10 +70,10 @@ extension NftDetailViewController: UITableViewDelegate, UITableViewDataSource {
             return cell ?? UITableViewCell()
 
         case .lastestDeal:
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: LastestDealTableViewCell.identifier, for: indexPath) as? LastestDealTableViewCell
             cell?.setupCell(data: viewModel.getNft)
             return cell ?? UITableViewCell()
+
         default:
             return UITableViewCell()
         }

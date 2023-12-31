@@ -55,6 +55,8 @@
 		E05248CC2B17733B00E8260C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05248CA2B17733B00E8260C /* LaunchScreen.storyboard */; };
 		E05248D72B17766B00E8260C /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248D62B17766B00E8260C /* ViewCode.swift */; };
 		E05248DA2B1777A200E8260C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248D92B1777A200E8260C /* UIView+Extensions.swift */; };
+		E06FBD132B41EB7300D41345 /* LastestDealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FBD122B41EB7300D41345 /* LastestDealTableViewCell.swift */; };
+		E06FBD162B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FBD152B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift */; };
 		E07478FE2B40870100E04FE4 /* NftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07478FD2B40870100E04FE4 /* NftDetailViewController.swift */; };
 		E07479002B40875300E04FE4 /* NftDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07478FF2B40875300E04FE4 /* NftDetailViewModel.swift */; };
 		E07479022B40B13F00E04FE4 /* NftDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07479012B40B13F00E04FE4 /* NftDetailTableViewCell.swift */; };
@@ -86,6 +88,8 @@
 		E05248CD2B17733B00E8260C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E05248D62B17766B00E8260C /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		E05248D92B1777A200E8260C /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		E06FBD122B41EB7300D41345 /* LastestDealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastestDealTableViewCell.swift; sourceTree = "<group>"; };
+		E06FBD152B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastestDealTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		E07478FD2B40870100E04FE4 /* NftDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftDetailViewController.swift; sourceTree = "<group>"; };
 		E07478FF2B40875300E04FE4 /* NftDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftDetailViewModel.swift; sourceTree = "<group>"; };
 		E07479012B40B13F00E04FE4 /* NftDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -279,12 +283,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E06FBD142B41EBB200D41345 /* LastestDeal */ = {
+			isa = PBXGroup;
+			children = (
+				E06FBD122B41EB7300D41345 /* LastestDealTableViewCell.swift */,
+				E06FBD152B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift */,
+			);
+			path = LastestDeal;
+			sourceTree = "<group>";
+		};
 		E07478FC2B4086E600E04FE4 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				E07478FD2B40870100E04FE4 /* NftDetailViewController.swift */,
 				E07479012B40B13F00E04FE4 /* NftDetailTableViewCell.swift */,
 				E07478FF2B40875300E04FE4 /* NftDetailViewModel.swift */,
+				E06FBD142B41EBB200D41345 /* LastestDeal */,
 				E02D17AF2B419E2A00D062BE /* Cell */,
 			);
 			path = Detail;
@@ -457,9 +471,11 @@
 				E07479002B40875300E04FE4 /* NftDetailViewModel.swift in Sources */,
 				E07478FE2B40870100E04FE4 /* NftDetailViewController.swift in Sources */,
 				E02D17B12B419E5800D062BE /* NftDescriptionTableViewCell.swift in Sources */,
+				E06FBD162B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift in Sources */,
 				E05248C02B17733900E8260C /* AppDelegate.swift in Sources */,
 				E05248DA2B1777A200E8260C /* UIView+Extensions.swift in Sources */,
 				E0FB0CBC2B29FF2900A12669 /* TabBarController.swift in Sources */,
+				E06FBD132B41EB7300D41345 /* LastestDealTableViewCell.swift in Sources */,
 				E04B2B282B31CFAA001153B3 /* GenericService.swift in Sources */,
 				E04B2B372B346B5F001153B3 /* HomeTableViewCell.swift in Sources */,
 				E04B2B392B346B6E001153B3 /* HomeCollectionViewCell.swift in Sources */,
