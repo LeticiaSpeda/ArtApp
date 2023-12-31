@@ -190,9 +190,9 @@ open class NetworkReachabilityManager {
             copyDescription: { info in
                 let unmanaged = Unmanaged<WeakManager>.fromOpaque(info)
                 let weakManager = unmanaged.takeUnretainedValue()
-                let description = weakManager.manager?.flags?.readableDescription ?? "nil"
+                let nftdescription = weakManager.manager?.flags?.readableDescription ?? "nil"
 
-                return Unmanaged.passRetained(description as CFString)
+                return Unmanaged.passRetained(nftdescription as CFString)
             }
         )
         let callback: SCNetworkReachabilityCallBack = { _, flags, info in
