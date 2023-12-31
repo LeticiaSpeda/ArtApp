@@ -144,6 +144,12 @@ extension HomeViewController: UITabBarDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel.heightForRow
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nftDetail = NftDetailViewController(nftViewModel: NftDetailViewModel(nft: viewModel.loadCurrentNft(indexPath: indexPath)))
+        nftDetail.modalPresentationStyle = .fullScreen
+        present(nftDetail, animated: true)
+    }
 }
 
 
