@@ -1,7 +1,12 @@
 import UIKit
 
+enum NftDetail: Int {
+    case nftImage = 0
+    case description = 1
+}
+
 final class NftDetailViewController: UIViewController, ViewCode {
-    private var nftViewModel: NftDetailViewModeling
+    private var viewModel: NftDetailViewModeling
 
     private lazy var tableView: UITableView = {
         let table = UITableView()
@@ -10,6 +15,7 @@ final class NftDetailViewController: UIViewController, ViewCode {
         table.delegate = self
         table.dataSource = self
         table.register(NftDetailTableViewCell.self, forCellReuseIdentifier: NftDetailTableViewCell.identifier)
+        table.register(NftDescriptionTableViewCell.self, forCellReuseIdentifier: NftDescriptionTableViewCell.identifier)
         table.enableViewCode()
         return table
     }()
@@ -20,13 +26,13 @@ final class NftDetailViewController: UIViewController, ViewCode {
     }
 
     init(nftViewModel: NftDetailViewModeling) {
-        self.nftViewModel = nftViewModel
+        self.viewModel = nftViewModel
         super.init(nibName: nil, bundle: nil)
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
-    
+
     func setupHierarchy() {
         view.addSubview(tableView)
     }
@@ -44,19 +50,30 @@ final class NftDetailViewController: UIViewController, ViewCode {
 extension NftDetailViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nftViewModel.numberOfRowsInSection
+        return viewModel.numberOfRowsInSection
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NftDetailTableViewCell.identifier, for: indexPath) as? NftDetailTableViewCell
-        
-        cell?.setupCell(urlImage: nftViewModel.nftImage, delegate: self)
 
-        return cell ?? UITableViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        switch NftDetail(rawValue: indexPath.row) {
+        case .nftImage:
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: NftDetailTableViewCell.identifier, for: indexPath) as? NftDetailTableViewCell
+            cell?.setupCell(urlImage: viewModel.nftImage, delegate: self)
+            return cell ?? UITableViewCell()
+        case .description:
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: NftDescriptionTableViewCell.identifier, for: indexPath) as? NftDescriptionTableViewCell
+            cell?.setupCell(id: viewModel.idNft, title: viewModel.nftTitleLabel, description: viewModel.nftdescription)
+            return cell ?? UITableViewCell()
+
+        default:
+            return UITableViewCell()
+        }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
+        return viewModel.heightForRowAt(indexPath: indexPath)
     }
 }
 
@@ -64,7 +81,7 @@ extension NftDetailViewController: NftDetailTableViewCellDelegate {
     func tappedCloseButton() {
         dismiss(animated: true)
     }
-    
+
     func tappedMagnifyingGlassButton() {
         print("ok")
     }
