@@ -3,6 +3,7 @@ import UIKit
 enum NftDetail: Int {
     case nftImage = 0
     case description = 1
+    case lastestDeal = 2
 }
 
 final class NftDetailViewController: UIViewController, ViewCode {
@@ -16,6 +17,8 @@ final class NftDetailViewController: UIViewController, ViewCode {
         table.dataSource = self
         table.register(NftDetailTableViewCell.self, forCellReuseIdentifier: NftDetailTableViewCell.identifier)
         table.register(NftDescriptionTableViewCell.self, forCellReuseIdentifier: NftDescriptionTableViewCell.identifier)
+
+        table.register(LastestDealTableViewCell.self, forCellReuseIdentifier: LastestDealTableViewCell.identifier)
         table.enableViewCode()
         return table
     }()
@@ -67,6 +70,11 @@ extension NftDetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell?.setupCell(id: viewModel.idNft, title: viewModel.nftTitleLabel, description: viewModel.nftDescription)
             return cell ?? UITableViewCell()
 
+        case .lastestDeal:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: LastestDealTableViewCell.identifier, for: indexPath) as? LastestDealTableViewCell
+            cell?.setupCell(data: viewModel.getNft)
+            return cell ?? UITableViewCell()
         default:
             return UITableViewCell()
         }
