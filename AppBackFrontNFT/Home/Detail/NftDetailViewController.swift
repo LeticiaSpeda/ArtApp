@@ -9,6 +9,7 @@ final class NftDetailViewController: UIViewController, ViewCode {
         table.backgroundColor = .backgroudColorMain
         table.delegate = self
         table.dataSource = self
+        table.register(NftDetailTableViewCell.self, forCellReuseIdentifier: NftDetailTableViewCell.identifier)
         table.enableViewCode()
         return table
     }()
@@ -38,19 +39,33 @@ final class NftDetailViewController: UIViewController, ViewCode {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
-
 }
 
 extension NftDetailViewController: UITableViewDelegate, UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return nftViewModel.numberOfRowsInSection
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: NftDetailTableViewCell.identifier, for: indexPath) as? NftDetailTableViewCell
+        
+        cell?.setupCell(urlImage: nftViewModel.nftImage, delegate: self)
+
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 0
+        return 400
+    }
+}
+
+extension NftDetailViewController: NftDetailTableViewCellDelegate {
+    func tappedCloseButton() {
+        dismiss(animated: true)
+    }
+    
+    func tappedMagnifyingGlassButton() {
+        print("ok")
     }
 }
