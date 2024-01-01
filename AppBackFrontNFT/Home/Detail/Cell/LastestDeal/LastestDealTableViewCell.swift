@@ -15,7 +15,7 @@ final class LastestDealTableViewCell: UITableViewCell, ViewCode {
 
     private lazy var tableView: UITableView = {
         let table = UITableView()
-        table.isScrollEnabled = true
+        table.isScrollEnabled = false
         table.separatorStyle = .none
         table.delegate = self
         table.dataSource = self
