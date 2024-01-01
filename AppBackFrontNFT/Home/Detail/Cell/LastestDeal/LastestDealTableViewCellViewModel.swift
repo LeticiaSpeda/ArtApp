@@ -7,6 +7,9 @@ protocol LastestDealTableViewCellViewModeling {
     var heightForRowAt: CGFloat { get }
 
     func setNft(nft: Nft)
+    func loadCurrentLatestDeal(indexPath: IndexPath) -> LatestDeal
+    func isInicial(indexPath: IndexPath) -> Bool
+    func isFinal(indexPath: IndexPath) -> Bool
 }
 
 final class LastestDealTableViewCellViewModel: LastestDealTableViewCellViewModeling {
@@ -26,5 +29,17 @@ final class LastestDealTableViewCellViewModel: LastestDealTableViewCellViewModel
 
     func setNft(nft: Nft) {
         self.nft = nft
+    }
+
+    func loadCurrentLatestDeal(indexPath: IndexPath) -> LatestDeal {
+        return nft?.latestDeals?[indexPath.row] ?? LatestDeal()
+    }
+
+    func isInicial(indexPath: IndexPath) -> Bool {
+        return indexPath.row == 0
+    }
+
+    func isFinal(indexPath: IndexPath) -> Bool {
+        return indexPath.row == numberOfRowsInSection - 1
     }
 }
