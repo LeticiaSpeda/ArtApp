@@ -5,7 +5,7 @@ final class NftDescriptionTableViewCell: UITableViewCell, ViewCode {
 
     private lazy var idLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .backgroudColorLabelDescription
+        label.textColor = .backgroudColorLabelSecond
         label.font = .boldSystemFont(ofSize: 24)
         label.enableViewCode()
         return label
