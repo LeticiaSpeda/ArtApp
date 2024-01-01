@@ -1,5 +1,9 @@
 import Foundation
 
+enum HeightLastestDeal: CGFloat {
+    case heigth = 70
+}
+
 protocol LastestDealTableViewCellViewModeling {
     var nft: Nft? { get }
     var title: String { get }
@@ -24,7 +28,7 @@ final class LastestDealTableViewCellViewModel: LastestDealTableViewCellViewModel
     }
 
     var heightForRowAt: CGFloat {
-        return 70
+        return HeightLastestDeal.heigth.rawValue
     }
 
     func setNft(nft: Nft) {
