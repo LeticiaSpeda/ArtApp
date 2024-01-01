@@ -50,7 +50,7 @@ final class NftDetailViewModel: NftDetailViewModeling {
         case .description:
             return nftDescription.height(withConstrainedWidth: width - 40, font: .systemFont(ofSize: 18)) + 89
         case .lastestDeal:
-            return 400
+            return HeightLastestDeal.heigth.rawValue * CGFloat(nft.latestDeals?.count ?? 0) + 75
 
         default:
             return 0
