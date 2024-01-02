@@ -59,6 +59,8 @@
 		E06FBD162B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FBD152B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift */; };
 		E06FBD192B41F8CB00D41345 /* ListOffersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FBD182B41F8CB00D41345 /* ListOffersTableViewCell.swift */; };
 		E06FBD1B2B431C6100D41345 /* CACornerMask+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FBD1A2B431C6100D41345 /* CACornerMask+Extensions.swift */; };
+		E06FBD212B4338AE00D41345 /* MagnifyingGlassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FBD202B4338AE00D41345 /* MagnifyingGlassViewController.swift */; };
+		E06FBD292B434FA300D41345 /* MagnifyingGlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FBD282B434FA300D41345 /* MagnifyingGlassView.swift */; };
 		E07478FE2B40870100E04FE4 /* NftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07478FD2B40870100E04FE4 /* NftDetailViewController.swift */; };
 		E07479002B40875300E04FE4 /* NftDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07478FF2B40875300E04FE4 /* NftDetailViewModel.swift */; };
 		E07479022B40B13F00E04FE4 /* NftDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07479012B40B13F00E04FE4 /* NftDetailTableViewCell.swift */; };
@@ -94,6 +96,8 @@
 		E06FBD152B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastestDealTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		E06FBD182B41F8CB00D41345 /* ListOffersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOffersTableViewCell.swift; sourceTree = "<group>"; };
 		E06FBD1A2B431C6100D41345 /* CACornerMask+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CACornerMask+Extensions.swift"; sourceTree = "<group>"; };
+		E06FBD202B4338AE00D41345 /* MagnifyingGlassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifyingGlassViewController.swift; sourceTree = "<group>"; };
+		E06FBD282B434FA300D41345 /* MagnifyingGlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifyingGlassView.swift; sourceTree = "<group>"; };
 		E07478FD2B40870100E04FE4 /* NftDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftDetailViewController.swift; sourceTree = "<group>"; };
 		E07478FF2B40875300E04FE4 /* NftDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftDetailViewModel.swift; sourceTree = "<group>"; };
 		E07479012B40B13F00E04FE4 /* NftDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -164,9 +168,8 @@
 		E02D17AF2B419E2A00D062BE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E06FBD172B41F8A200D41345 /* ListOffersTableViewCell */,
-				E06FBD142B41EBB200D41345 /* LastestDeal */,
 				E02D17B02B419E5800D062BE /* NftDescriptionTableViewCell.swift */,
+				E06FBD222B4339A400D41345 /* Subcomponents */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -178,23 +181,15 @@
 				E04B2B252B30D379001153B3 /* HomeViewModel.swift */,
 				E030C0FF2B2259B000046C38 /* HomeViewController.swift */,
 				E04B2B352B346B48001153B3 /* Cells */,
-				E07478FC2B4086E600E04FE4 /* Detail */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		E04B2B2E2B31D594001153B3 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				E04B2B2C2B31D58B001153B3 /* HomeData.json */,
-			);
-			path = JSON;
 			sourceTree = "<group>";
 		};
 		E04B2B312B31D691001153B3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				E04B2B2F2B31D675001153B3 /* NFTData.swift */,
+				E06FBD242B433A6600D41345 /* Models */,
+				E06FBD232B433A4900D41345 /* MockData */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -237,13 +232,10 @@
 		E05248BE2B17733900E8260C /* AppBackFrontNFT */ = {
 			isa = PBXGroup;
 			children = (
-				E0FB0CBA2B29FF0200A12669 /* Login */,
+				E06FBD1C2B432CD800D41345 /* Features */,
 				E04B2B312B31D691001153B3 /* Data */,
-				E04B2B2E2B31D594001153B3 /* JSON */,
-				E04B2B2B2B31D0F8001153B3 /* Home */,
 				E04B2B342B346A25001153B3 /* Service */,
-				E05248D82B17778D00E8260C /* Extensions */,
-				E05248D52B17765B00E8260C /* Helpers */,
+				E06FBD1E2B432D4000D41345 /* Utilities */,
 				E05248D42B1773BE00E8260C /* Assets */,
 				E05248D32B1773B200E8260C /* Aplication */,
 				E05248CD2B17733B00E8260C /* Info.plist */,
@@ -299,15 +291,69 @@
 			path = LastestDeal;
 			sourceTree = "<group>";
 		};
-		E06FBD172B41F8A200D41345 /* ListOffersTableViewCell */ = {
+		E06FBD172B41F8A200D41345 /* ListOffers */ = {
 			isa = PBXGroup;
 			children = (
 				E06FBD182B41F8CB00D41345 /* ListOffersTableViewCell.swift */,
 			);
-			path = ListOffersTableViewCell;
+			path = ListOffers;
 			sourceTree = "<group>";
 		};
-		E07478FC2B4086E600E04FE4 /* Detail */ = {
+		E06FBD1C2B432CD800D41345 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				E06FBD1F2B43368800D41345 /* MagnifyingGlass */,
+				E0FB0CBA2B29FF0200A12669 /* Login */,
+				E04B2B2B2B31D0F8001153B3 /* Home */,
+				E07478FC2B4086E600E04FE4 /* NftDetail */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		E06FBD1E2B432D4000D41345 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E05248D82B17778D00E8260C /* Extensions */,
+				E05248D52B17765B00E8260C /* Helpers */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E06FBD1F2B43368800D41345 /* MagnifyingGlass */ = {
+			isa = PBXGroup;
+			children = (
+				E06FBD202B4338AE00D41345 /* MagnifyingGlassViewController.swift */,
+				E06FBD282B434FA300D41345 /* MagnifyingGlassView.swift */,
+			);
+			path = MagnifyingGlass;
+			sourceTree = "<group>";
+		};
+		E06FBD222B4339A400D41345 /* Subcomponents */ = {
+			isa = PBXGroup;
+			children = (
+				E06FBD142B41EBB200D41345 /* LastestDeal */,
+				E06FBD172B41F8A200D41345 /* ListOffers */,
+			);
+			path = Subcomponents;
+			sourceTree = "<group>";
+		};
+		E06FBD232B433A4900D41345 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				E04B2B2C2B31D58B001153B3 /* HomeData.json */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		E06FBD242B433A6600D41345 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E04B2B2F2B31D675001153B3 /* NFTData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E07478FC2B4086E600E04FE4 /* NftDetail */ = {
 			isa = PBXGroup;
 			children = (
 				E07478FD2B40870100E04FE4 /* NftDetailViewController.swift */,
@@ -315,7 +361,7 @@
 				E07478FF2B40875300E04FE4 /* NftDetailViewModel.swift */,
 				E02D17AF2B419E2A00D062BE /* Cell */,
 			);
-			path = Detail;
+			path = NftDetail;
 			sourceTree = "<group>";
 		};
 		E0FB0CBA2B29FF0200A12669 /* Login */ = {
@@ -482,6 +528,7 @@
 				E02D17B32B41AFCF00D062BE /* String+Extensions.swift in Sources */,
 				E05248C42B17733900E8260C /* LoginViewController.swift in Sources */,
 				E04B2B262B30D379001153B3 /* HomeViewModel.swift in Sources */,
+				E06FBD212B4338AE00D41345 /* MagnifyingGlassViewController.swift in Sources */,
 				E07479002B40875300E04FE4 /* NftDetailViewModel.swift in Sources */,
 				E07478FE2B40870100E04FE4 /* NftDetailViewController.swift in Sources */,
 				E02D17B12B419E5800D062BE /* NftDescriptionTableViewCell.swift in Sources */,
@@ -495,6 +542,7 @@
 				E04B2B392B346B6E001153B3 /* HomeCollectionViewCell.swift in Sources */,
 				E030C13B2B23294100046C38 /* UIViewControllew+Extensions.swift in Sources */,
 				E030C1002B2259B000046C38 /* HomeViewController.swift in Sources */,
+				E06FBD292B434FA300D41345 /* MagnifyingGlassView.swift in Sources */,
 				E04B2B2A2B31D0F1001153B3 /* HomeService.swift in Sources */,
 				E05248C22B17733900E8260C /* SceneDelegate.swift in Sources */,
 				E04B2B302B31D675001153B3 /* NFTData.swift in Sources */,

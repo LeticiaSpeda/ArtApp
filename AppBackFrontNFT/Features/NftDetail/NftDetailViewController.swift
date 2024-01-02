@@ -92,6 +92,9 @@ extension NftDetailViewController: NftDetailTableViewCellDelegate {
     }
 
     func tappedMagnifyingGlassButton() {
-        print("ok")
+        let magnifyingGlass = MagnifyingGlass(urlImage: viewModel.nftImage)
+        magnifyingGlass.modalPresentationStyle = .fullScreen
+        present(magnifyingGlass, animated: true)
     }
 }
+
