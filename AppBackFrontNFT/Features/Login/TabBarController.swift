@@ -11,7 +11,7 @@ final class TabBarController: UITabBarController {
         let home = HomeViewController(viewModel: HomeViewModel(service: HomeService(), nftData: NFTData(), searchNftData: NFTData()))
         home.tabBarItem.image = UIImage(systemName: "house.fill")
 
-        let wallet = WalletViewController()
+        let wallet = WalletViewController(viewModel: WalletViewModel(service: WalletService()))
         wallet.tabBarItem.image = UIImage(systemName: "wallet.pass.fill")
 
         tabBar.tintColor = .white
