@@ -1,7 +1,7 @@
 import Foundation
 
-// MARK: - Welcome
-struct Welcome: Codable {
+// MARK: - WalletData
+struct WalletData: Codable {
     let quotationEthereun: QuotationEthereun
     let latestTransactionsCell: LatestTransactionsCell
 
