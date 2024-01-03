@@ -97,4 +97,3 @@ extension NftDetailViewController: NftDetailTableViewCellDelegate {
         present(magnifyingGlass, animated: true)
     }
 }
-

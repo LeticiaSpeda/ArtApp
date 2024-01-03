@@ -40,8 +40,9 @@ struct ListOfTransaction: Codable {
 
 // MARK: - QuotationEthereun
 struct QuotationEthereun: Codable {
-    let ethValue, valueInDollars: Double
-    let coinEthImage: String
+    var ethValue: Double
+    var valueInDollars: Double
+    var coinEthImage: String
 
     enum CodingKeys: String, CodingKey {
         case ethValue = "eth_value"
