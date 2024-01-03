@@ -22,7 +22,7 @@ final class WalletService:  WalletServing {
     }
 
     func getWallet(completion: @escaping completion<WalletData?>) {
-        let url = "https://run.mocky.io/v3/ca84d863-7fdd-4105-b1a9-ef157b120d77"
+        let url = "https://run.mocky.io/v3/0d88aed4-b24f-465c-bb70-087fab998e8c"
 
         AF.request(url, method: .get).validate(statusCode: 200...299).responseDecodable(of: WalletData.self) { response in
 
