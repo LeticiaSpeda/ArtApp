@@ -1,6 +1,7 @@
 import UIKit
 
 final class WalletViewController: UIViewController, ViewCode {
+    var viewModel: WalletViewModeling
 
     private lazy var tableView: UITableView = {
         let table = UITableView()
@@ -12,8 +13,17 @@ final class WalletViewController: UIViewController, ViewCode {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.fetch(.request)
         commonInit()
     }
+
+    init(viewModel: WalletViewModeling) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
 
     func setupHierarchy() {
         view.addSubview(tableView)
