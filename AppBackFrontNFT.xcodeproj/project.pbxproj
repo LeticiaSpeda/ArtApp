@@ -69,6 +69,7 @@
 		E0B8A9892B444D4100A9E6F2 /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8A9882B444D4100A9E6F2 /* WalletService.swift */; };
 		E0B8A98B2B4459A800A9E6F2 /* WalletData.json in Resources */ = {isa = PBXBuildFile; fileRef = E0B8A98A2B4459A800A9E6F2 /* WalletData.json */; };
 		E0B8A98D2B44688B00A9E6F2 /* WalletData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8A98C2B44688B00A9E6F2 /* WalletData.swift */; };
+		E0BE82722B458F5100A81BCB /* QuotationEthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE82712B458F5100A81BCB /* QuotationEthTableViewCell.swift */; };
 		E0C9C33D2B1E61FC004D347C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9C33C2B1E61FC004D347C /* Colors.swift */; };
 		E0C9C33F2B20A362004D347C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C9C33E2B20A362004D347C /* LoginViewModel.swift */; };
 		E0FB0CBC2B29FF2900A12669 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FB0CBB2B29FF2900A12669 /* TabBarController.swift */; };
@@ -111,6 +112,7 @@
 		E0B8A9882B444D4100A9E6F2 /* WalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletService.swift; sourceTree = "<group>"; };
 		E0B8A98A2B4459A800A9E6F2 /* WalletData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WalletData.json; sourceTree = "<group>"; };
 		E0B8A98C2B44688B00A9E6F2 /* WalletData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletData.swift; sourceTree = "<group>"; };
+		E0BE82712B458F5100A81BCB /* QuotationEthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationEthTableViewCell.swift; sourceTree = "<group>"; };
 		E0C9C33C2B1E61FC004D347C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E0C9C33E2B20A362004D347C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E0FB0CBB2B29FF2900A12669 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -380,11 +382,28 @@
 		E0B8A9822B444A4800A9E6F2 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				E0BE82702B458F3100A81BCB /* Cell */,
 				E0B8A9842B444A9500A9E6F2 /* WalletViewController.swift */,
 				E0B8A9862B444D1900A9E6F2 /* WalletViewModel.swift */,
 				E0B8A9882B444D4100A9E6F2 /* WalletService.swift */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		E0BE82702B458F3100A81BCB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E0BE82732B458FC500A81BCB /* QuotationEth */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E0BE82732B458FC500A81BCB /* QuotationEth */ = {
+			isa = PBXGroup;
+			children = (
+				E0BE82712B458F5100A81BCB /* QuotationEthTableViewCell.swift */,
+			);
+			path = QuotationEth;
 			sourceTree = "<group>";
 		};
 		E0FB0CBA2B29FF0200A12669 /* Login */ = {
@@ -548,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0BE82722B458F5100A81BCB /* QuotationEthTableViewCell.swift in Sources */,
 				E07479022B40B13F00E04FE4 /* NftDetailTableViewCell.swift in Sources */,
 				E02D17B32B41AFCF00D062BE /* String+Extensions.swift in Sources */,
 				E05248C42B17733900E8260C /* LoginViewController.swift in Sources */,
