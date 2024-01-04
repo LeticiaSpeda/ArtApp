@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		B4B5C6A3EE702BFF8CF4FA49 /* Pods_AppBackFrontNFT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5F0FB87CF58F63CD216BC0 /* Pods_AppBackFrontNFT.framework */; };
 		E00DD8AB2B46E5E800851658 /* LatestTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00DD8AA2B46E5E800851658 /* LatestTransactionTableViewCell.swift */; };
-		E00DD8AD2B46E65D00851658 /* LatestTransactionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00DD8AC2B46E65D00851658 /* LatestTransactionsModel.swift */; };
+		E00DD8AD2B46E65D00851658 /* LatestTransactionsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00DD8AC2B46E65D00851658 /* LatestTransactionsTableViewCellViewModel.swift */; };
+		E00DD8B02B46F0E100851658 /* ListOFTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00DD8AF2B46F0E100851658 /* ListOFTransactionTableViewCell.swift */; };
 		E02D17B12B419E5800D062BE /* NftDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D17B02B419E5800D062BE /* NftDescriptionTableViewCell.swift */; };
 		E02D17B32B41AFCF00D062BE /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D17B22B41AFCF00D062BE /* String+Extensions.swift */; };
 		E030C1002B2259B000046C38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030C0FF2B2259B000046C38 /* HomeViewController.swift */; };
@@ -80,7 +81,8 @@
 /* Begin PBXFileReference section */
 		D69F8F2C8494100C0B2607D5 /* Pods-AppBackFrontNFT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppBackFrontNFT.debug.xcconfig"; path = "Target Support Files/Pods-AppBackFrontNFT/Pods-AppBackFrontNFT.debug.xcconfig"; sourceTree = "<group>"; };
 		E00DD8AA2B46E5E800851658 /* LatestTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTransactionTableViewCell.swift; sourceTree = "<group>"; };
-		E00DD8AC2B46E65D00851658 /* LatestTransactionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTransactionsModel.swift; sourceTree = "<group>"; };
+		E00DD8AC2B46E65D00851658 /* LatestTransactionsTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTransactionsTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		E00DD8AF2B46F0E100851658 /* ListOFTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOFTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		E02D17B02B419E5800D062BE /* NftDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NftDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		E02D17B22B41AFCF00D062BE /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		E030C0FF2B2259B000046C38 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -185,9 +187,17 @@
 			isa = PBXGroup;
 			children = (
 				E00DD8AA2B46E5E800851658 /* LatestTransactionTableViewCell.swift */,
-				E00DD8AC2B46E65D00851658 /* LatestTransactionsModel.swift */,
+				E00DD8AC2B46E65D00851658 /* LatestTransactionsTableViewCellViewModel.swift */,
 			);
 			path = LatestTransactionTableViewCell;
+			sourceTree = "<group>";
+		};
+		E00DD8AE2B46F0B100851658 /* ListOFTransactionTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E00DD8AF2B46F0E100851658 /* ListOFTransactionTableViewCell.swift */,
+			);
+			path = ListOFTransactionTableViewCell;
 			sourceTree = "<group>";
 		};
 		E02D17AF2B419E2A00D062BE /* Cell */ = {
@@ -408,6 +418,7 @@
 				E0B8A9882B444D4100A9E6F2 /* WalletService.swift */,
 				E0BE82732B458FC500A81BCB /* QuotationEth */,
 				E00DD8A92B46E5CA00851658 /* LatestTransactionTableViewCell */,
+				E00DD8AE2B46F0B100851658 /* ListOFTransactionTableViewCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -587,6 +598,7 @@
 				E05248C42B17733900E8260C /* LoginViewController.swift in Sources */,
 				E04B2B262B30D379001153B3 /* HomeViewModel.swift in Sources */,
 				E06FBD212B4338AE00D41345 /* MagnifyingGlassViewController.swift in Sources */,
+				E00DD8B02B46F0E100851658 /* ListOFTransactionTableViewCell.swift in Sources */,
 				E07479002B40875300E04FE4 /* NftDetailViewModel.swift in Sources */,
 				E07478FE2B40870100E04FE4 /* NftDetailViewController.swift in Sources */,
 				E02D17B12B419E5800D062BE /* NftDescriptionTableViewCell.swift in Sources */,
@@ -594,7 +606,7 @@
 				E0B8A9852B444A9500A9E6F2 /* WalletViewController.swift in Sources */,
 				E05248C02B17733900E8260C /* AppDelegate.swift in Sources */,
 				E05248DA2B1777A200E8260C /* UIView+Extensions.swift in Sources */,
-				E00DD8AD2B46E65D00851658 /* LatestTransactionsModel.swift in Sources */,
+				E00DD8AD2B46E65D00851658 /* LatestTransactionsTableViewCellViewModel.swift in Sources */,
 				E0FB0CBC2B29FF2900A12669 /* TabBarController.swift in Sources */,
 				E06FBD132B41EB7300D41345 /* LastestDealTableViewCell.swift in Sources */,
 				E04B2B282B31CFAA001153B3 /* GenericService.swift in Sources */,

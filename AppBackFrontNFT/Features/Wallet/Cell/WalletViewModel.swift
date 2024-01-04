@@ -4,10 +4,11 @@ protocol WalletViewModeling {
     var delegate: WalletViewModelDelegate? { get set }
     var walletData: WalletData? { get }
     var numberOfRowsInSection: Int { get }
+    var quotationEthreum: QuotationEthereun { get }
+    var transationList: LatestTransactionsCell { get }
 
     func fetch(_ type: Typefeatch)
     func heightForRowAt(indexPath: IndexPath) -> CGFloat
-    func loadCurrentQuotationEthreum(indexPath: IndexPath) -> QuotationEthereun
 }
 
 protocol WalletViewModelDelegate: AnyObject {
@@ -15,9 +16,9 @@ protocol WalletViewModelDelegate: AnyObject {
     func error()
 }
 
-
 enum WalletNameCell: Int {
-    case quotationEth = 1
+    case quotationEth = 0
+    case transactionList = 1
 }
 
 final class WalletViewModel: WalletViewModeling {
@@ -32,20 +33,27 @@ final class WalletViewModel: WalletViewModeling {
     }
 
     var numberOfRowsInSection: Int {
-        return 1
+        return 2
+    }
+
+    var quotationEthreum: QuotationEthereun {
+        return walletData!.quotationEthereun
+    }
+
+    var transationList: LatestTransactionsCell {
+        return walletData!.latestTransactionsCell
     }
 
     func heightForRowAt(indexPath: IndexPath) -> CGFloat {
         switch WalletNameCell(rawValue: indexPath.row) {
         case .quotationEth:
             return 250
+
+        case .transactionList:
+            return HeightLatestTransactions.heigth.rawValue * CGFloat(walletData?.latestTransactionsCell.listOfTransactions.count ?? 0) + 75
         default:
             return 0
         }
-    }
-
-    func loadCurrentQuotationEthreum(indexPath: IndexPath) -> QuotationEthereun {
-        return walletData!.quotationEthereun
     }
 
     func fetch(_ type: Typefeatch) {
