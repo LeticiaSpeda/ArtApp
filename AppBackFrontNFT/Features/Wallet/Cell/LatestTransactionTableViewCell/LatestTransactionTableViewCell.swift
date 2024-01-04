@@ -3,7 +3,9 @@ import UIKit
 final class LatestTransactionsTableViewCell: UITableViewCell, ViewCode {
     static let identifier = String(describing: LatestTransactionsTableViewCell.self)
 
-    var viewModel: LatestTransactionsTableViewCellViewModeling? = LatestTransactionsTableViewCellViewModel()
+    private var latestTransactions: [ListOfTransaction] = []
+
+    var viewModel: LatestTransactionsTableViewCellViewModeling = LatestTransactionsTableViewCellViewModel()
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -20,6 +22,7 @@ final class LatestTransactionsTableViewCell: UITableViewCell, ViewCode {
         table.backgroundColor = .backgroudDarkGray
         table.delegate = self
         table.dataSource = self
+        table.register(ListOFTransactionTableViewCell.self, forCellReuseIdentifier: ListOFTransactionTableViewCell.identifier)
         table.enableViewCode()
         return table
     }()
@@ -32,6 +35,11 @@ final class LatestTransactionsTableViewCell: UITableViewCell, ViewCode {
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
 
+    func setupCell(data: LatestTransactionsCell) {
+        titleLabel.text = data.latestTransactionsTitle 
+        latestTransactions = data.listOfTransactions
+    }
+
     func setupHierarchy() {
         addSubview(titleLabel)
         addSubview(tableView)
@@ -40,7 +48,7 @@ final class LatestTransactionsTableViewCell: UITableViewCell, ViewCode {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            titleLabel.leftAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             titleLabel.heightAnchor.constraint(equalToConstant: 30),
 
             tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
@@ -57,10 +65,16 @@ final class LatestTransactionsTableViewCell: UITableViewCell, ViewCode {
 
 extension LatestTransactionsTableViewCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.numberOfRowsInSection
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: ListOFTransactionTableViewCell.identifier, for: indexPath) as? ListOFTransactionTableViewCell
+        cell?.setupCell(data: viewModel.loadCurrentLatestDeal(indexPath: indexPath), isInicial: viewModel.isInicial(indexPath: indexPath), isFinal: viewModel.isFinal(indexPath: indexPath))
+        return cell ?? UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return viewModel.heightForRowAt
     }
 }
