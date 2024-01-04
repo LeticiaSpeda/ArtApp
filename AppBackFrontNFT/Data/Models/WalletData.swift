@@ -13,8 +13,8 @@ struct WalletData: Codable {
 
 // MARK: - LatestTransactionsCell
 struct LatestTransactionsCell: Codable {
-    let latestTransactionsTitle: String
-    let listOfTransactions: [ListOfTransaction]
+    let latestTransactionsTitle: String = "Últimas Ofertas"
+    var listOfTransactions: [ListOfTransaction] = []
 
     enum CodingKeys: String, CodingKey {
         case latestTransactionsTitle = "latest_transactions_title"
@@ -24,9 +24,12 @@ struct LatestTransactionsCell: Codable {
 
 // MARK: - ListOfTransaction
 struct ListOfTransaction: Codable {
-    let type, idTransaction, image: String
-    let priceEth, valueDollar: Double
-    let dateAndHour: String
+    var type: String  = ""
+    var idTransaction: String = ""
+    var image: String = ""
+    var priceEth: Double = 0
+    var valueDollar: Double = 0
+    var dateAndHour: String = ""
 
     enum CodingKeys: String, CodingKey {
         case type
