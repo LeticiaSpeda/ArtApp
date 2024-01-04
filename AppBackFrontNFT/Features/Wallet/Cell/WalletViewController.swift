@@ -8,6 +8,7 @@ final class WalletViewController: UIViewController, ViewCode {
         table.separatorStyle = .none
         table.backgroundColor = .backgroudDarkGray
         table.register(QuotationEthTableViewCell.self, forCellReuseIdentifier: QuotationEthTableViewCell.identifier)
+        table.register(LatestTransactionsTableViewCell.self, forCellReuseIdentifier: LatestTransactionsTableViewCell.identifier)
         table.enableViewCode()
         return table
     }()
@@ -61,9 +62,25 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: QuotationEthTableViewCell.identifier, for: indexPath) as? QuotationEthTableViewCell
-        cell?.setupCell(data: viewModel.loadCurrentQuotationEthreum(indexPath: indexPath))
-        return cell ?? UITableViewCell()
+        switch WalletNameCell(rawValue: indexPath.row) {
+        case .quotationEth:
+            let cell = tableView.dequeueReusableCell(withIdentifier: QuotationEthTableViewCell.identifier, for: indexPath) as? QuotationEthTableViewCell
+
+            cell?.setupCell(data: viewModel.quotationEthreum)
+
+            return cell ?? UITableViewCell()
+
+        case.transactionList:
+            let cell = tableView.dequeueReusableCell(withIdentifier: LatestTransactionsTableViewCell.identifier, for: indexPath) as? LatestTransactionsTableViewCell
+            cell?.viewModel = LatestTransactionsTableViewCellViewModel()
+            cell?.viewModel.data = viewModel.walletData?.latestTransactionsCell
+            cell?.setupCell(data: viewModel.walletData?.latestTransactionsCell ?? LatestTransactionsCell())
+
+            return cell ?? UITableViewCell()
+            
+        default:
+            return UITableViewCell()
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
