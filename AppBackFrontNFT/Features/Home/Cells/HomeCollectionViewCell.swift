@@ -27,7 +27,7 @@ final class HomeCollectionViewCell: UICollectionViewCell, ViewCode {
         if filter.isSelected ?? false {
             filterLabel.backgroundColor = .purple
         } else {
-            filterLabel.backgroundColor = .backgroundLabel
+            filterLabel.backgroundColor = .backgroundLightDarkGray
         }
     }
 
