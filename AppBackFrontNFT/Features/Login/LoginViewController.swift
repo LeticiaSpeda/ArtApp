@@ -325,6 +325,6 @@ extension LoginViewController: LoginViewModelDelegate {
 
     func updateLoginButton(isEnable: Bool) {
         loginButton.isEnabled = isEnable
-        loginButton.backgroundColor = isEnable ? .backgroundButtom : .gray
+        loginButton.backgroundColor = isEnable ? .backgroundPink : .gray
     }
 }

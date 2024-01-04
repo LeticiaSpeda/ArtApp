@@ -29,7 +29,7 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         search.searchTextField.textColor = .black
         search.searchTextField.attributedPlaceholder = NSAttributedString(string: "Pesquise pelo nome", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
         search.searchTextField.leftView?.tintColor = .black
-        search.barTintColor = .backgroudColorMain
+        search.barTintColor = .backgroudDarkGray
         search.delegate = self
         return search
     }()
@@ -40,7 +40,7 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
         layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.showsHorizontalScrollIndicator = false
-        collection.backgroundColor = .backgroudColorMain
+        collection.backgroundColor = .backgroudDarkGray
         collection.enableViewCode()
         collection.setCollectionViewLayout(layout, animated: false)
         collection.register(
@@ -52,7 +52,7 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .backgroudColorMain
+        tableView.backgroundColor = .backgroudDarkGray
         tableView.enableViewCode()
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
@@ -109,7 +109,7 @@ final class HomeViewController: UIViewController, ViewCode, UITableViewDelegate 
     }
 
     func setupStyle() {
-        view.backgroundColor = .backgroudColorMain
+        view.backgroundColor = .backgroudDarkGray
     }
 }
 

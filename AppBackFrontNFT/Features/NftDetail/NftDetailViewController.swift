@@ -12,7 +12,7 @@ final class NftDetailViewController: UIViewController, ViewCode {
     private lazy var tableView: UITableView = {
         let table = UITableView()
         table.separatorStyle = .none
-        table.backgroundColor = .backgroudColorMain
+        table.backgroundColor = .backgroudDarkGray
         table.delegate = self
         table.dataSource = self
         table.register(NftDetailTableViewCell.self, forCellReuseIdentifier: NftDetailTableViewCell.identifier)

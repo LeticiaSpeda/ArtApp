@@ -26,7 +26,7 @@ final class ListOffersTableViewCell: UITableViewCell, ViewCode {
 
     private lazy var nftPriceLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .backgroudColorLabelSecond
+        label.textColor = .backgroudLightPink
         label.font = .systemFont(ofSize: 14, weight: .semibold)
         label.enableViewCode()
         return label
@@ -34,7 +34,7 @@ final class ListOffersTableViewCell: UITableViewCell, ViewCode {
 
     private lazy var lastVisualizationLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .backgroudColorLabelSecond
+        label.textColor = .backgroudLightPink
         label.font = .systemFont(ofSize: 12, weight: .semibold)
         label.enableViewCode()
         return label
@@ -92,7 +92,7 @@ final class ListOffersTableViewCell: UITableViewCell, ViewCode {
     }
 
     func setupStyle() {
-        backgroundColor = .backgroudColorMain
+        backgroundColor = .backgroudDarkGray
         selectionStyle = .none
     }
 }

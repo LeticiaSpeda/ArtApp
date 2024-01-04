@@ -66,7 +66,7 @@ final class LastestDealTableViewCell: UITableViewCell, ViewCode {
     }
 
     func setupStyle() {
-        backgroundColor = .backgroudColorMain
+        backgroundColor = .backgroudDarkGray
         selectionStyle = .none
     }
 }

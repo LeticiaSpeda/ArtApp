@@ -32,7 +32,7 @@ final class HomeTableViewCell: UITableViewCell, ViewCode {
     
     private lazy var ownerByPrice: UILabel = {
         let label = UILabel()
-        label.textColor = .textColorLabel
+        label.textColor = .backgroundLightDarkBlue
         label.font = .systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
@@ -46,7 +46,7 @@ final class HomeTableViewCell: UITableViewCell, ViewCode {
 
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .textColorLabel
+        label.textColor = .backgroundLightDarkBlue
         label.font = .systemFont(ofSize: 12, weight: .semibold)
         return label
     }()
@@ -122,7 +122,7 @@ extension HomeTableViewCell {
     }
 
     func setupStyle() {
-        backgroundColor = .backgroudColorMain
+        backgroundColor = .backgroudDarkGray
         layer.cornerRadius = 18
         clipsToBounds = true
         selectionStyle = .none

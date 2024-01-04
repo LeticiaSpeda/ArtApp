@@ -3,6 +3,8 @@ import UIKit
 final class LatestTransactionsTableViewCell: UITableViewCell, ViewCode {
     static let identifier = String(describing: LatestTransactionsTableViewCell.self)
 
+    var viewModel: LatestTransactionsTableViewCellViewModeling? = LatestTransactionsTableViewCellViewModel()
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -15,7 +17,7 @@ final class LatestTransactionsTableViewCell: UITableViewCell, ViewCode {
         let table = UITableView()
         table.separatorStyle = .none
         table.isScrollEnabled = false
-        table.backgroundColor = .backgroudColorMain
+        table.backgroundColor = .backgroudDarkGray
         table.delegate = self
         table.dataSource = self
         table.enableViewCode()
@@ -49,16 +51,16 @@ final class LatestTransactionsTableViewCell: UITableViewCell, ViewCode {
     }
 
     func setupStyle() {
-        backgroundColor = .backgroudColorMain
+        backgroundColor = .backgroudDarkGray
     }
 }
 
 extension LatestTransactionsTableViewCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //
+        return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //
+        return UITableViewCell()
     }
 }
