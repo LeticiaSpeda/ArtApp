@@ -93,5 +93,6 @@ final class ListOffersTableViewCell: UITableViewCell, ViewCode {
 
     func setupStyle() {
         backgroundColor = .backgroudColorMain
+        selectionStyle = .none
     }
 }

@@ -87,8 +87,6 @@ final class QuotationEthTableViewCell: UITableViewCell, ViewCode {
             cointEthImageView.topAnchor.constraint(equalTo: topAnchor, constant: -10),
             cointEthImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
             cointEthImageView.heightAnchor.constraint(equalToConstant: 240),
-
-
         ])
     }
 

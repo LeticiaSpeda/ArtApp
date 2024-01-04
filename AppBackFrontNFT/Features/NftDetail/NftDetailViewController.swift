@@ -71,7 +71,7 @@ extension NftDetailViewController: UITableViewDelegate, UITableViewDataSource {
 
         case .lastestDeal:
             let cell = tableView.dequeueReusableCell(withIdentifier: LastestDealTableViewCell.identifier, for: indexPath) as? LastestDealTableViewCell
-            
+
             cell?.viewModel = LastestDealTableViewCellViewModel()
             cell?.setupCell(data: viewModel.getNft)
             return cell ?? UITableViewCell()
