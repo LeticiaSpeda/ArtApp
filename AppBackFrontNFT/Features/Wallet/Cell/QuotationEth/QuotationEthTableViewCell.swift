@@ -30,7 +30,7 @@ final class QuotationEthTableViewCell: UITableViewCell, ViewCode {
 
     private lazy var ethValueInDollarsLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .backgroudColorLabelSecond
+        label.textColor = .backgroudLightPink
         label.font = .boldSystemFont(ofSize: 14)
         label.enableViewCode()
         return label
@@ -91,6 +91,6 @@ final class QuotationEthTableViewCell: UITableViewCell, ViewCode {
     }
 
     func setupStyle() {
-        backgroundColor = .backgroudColorMain
+        backgroundColor = .backgroudDarkGray
     }
 }

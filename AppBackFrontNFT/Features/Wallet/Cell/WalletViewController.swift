@@ -6,7 +6,7 @@ final class WalletViewController: UIViewController, ViewCode {
     private lazy var tableView: UITableView = {
         let table = UITableView()
         table.separatorStyle = .none
-        table.backgroundColor = .backgroudColorMain
+        table.backgroundColor = .backgroudDarkGray
         table.register(QuotationEthTableViewCell.self, forCellReuseIdentifier: QuotationEthTableViewCell.identifier)
         table.enableViewCode()
         return table
