@@ -24,7 +24,7 @@ final class NftDetailTableViewCell: UITableViewCell, ViewCode {
     private lazy var closedButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
-        button.backgroundColor = .backgroundColorButtonCell
+        button.backgroundColor = .backgroundLightGray
         button.tintColor = .white
         button.clipsToBounds = true
         button.layer.cornerRadius = 8
@@ -35,7 +35,7 @@ final class NftDetailTableViewCell: UITableViewCell, ViewCode {
     private lazy var magnifyingGlassButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-        button.backgroundColor = .backgroundColorButtonCell
+        button.backgroundColor = .backgroundLightGray
         button.tintColor = .white
         button.clipsToBounds = true
         button.layer.cornerRadius = 8

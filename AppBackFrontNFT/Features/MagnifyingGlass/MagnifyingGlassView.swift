@@ -11,14 +11,14 @@ final class MagnifyingGlassView: UIView, ViewCode {
     private(set) lazy var nftImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .backgroundColorButtonCell
+        imageView.backgroundColor = .backgroundLightGray
         imageView.enableViewCode()
         return imageView
     }()
 
     private lazy var backButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .backgroundColorButtonCell
+        button.backgroundColor = .backgroundLightGray
         button.tintColor = .white
         button.layer.cornerRadius = 8
         button.clipsToBounds = true

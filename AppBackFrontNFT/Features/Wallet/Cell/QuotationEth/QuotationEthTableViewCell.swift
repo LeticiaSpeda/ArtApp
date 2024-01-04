@@ -11,11 +11,11 @@ final class QuotationEthTableViewCell: UITableViewCell, ViewCode {
 
     private lazy var viewBackground: UIView = {
         let view = UIView()
-        view.backgroundColor = .backgrounColorTableView
+        view.backgroundColor = .backgroundLightDarkGray
         view.clipsToBounds = true
         view.layer.cornerRadius = 18
         view.layer.borderWidth = 1.5
-        view.layer.borderColor = UIColor.textColorLabelQuotation?.cgColor
+        view.layer.borderColor = UIColor.backgroundLightMediumDarkGray?.cgColor
         view.enableViewCode()
         return view
     }()
