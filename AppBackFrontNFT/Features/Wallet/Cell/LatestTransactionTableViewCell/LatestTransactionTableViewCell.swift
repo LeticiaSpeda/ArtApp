@@ -60,6 +60,7 @@ final class LatestTransactionsTableViewCell: UITableViewCell, ViewCode {
 
     func setupStyle() {
         backgroundColor = .backgroudDarkGray
+        selectionStyle = .none
     }
 }
 
