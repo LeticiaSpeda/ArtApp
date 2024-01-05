@@ -92,5 +92,6 @@ final class QuotationEthTableViewCell: UITableViewCell, ViewCode {
 
     func setupStyle() {
         backgroundColor = .backgroudDarkGray
+        selectionStyle = .none
     }
 }
