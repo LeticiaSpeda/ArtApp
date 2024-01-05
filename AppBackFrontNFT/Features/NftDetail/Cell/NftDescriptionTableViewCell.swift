@@ -69,5 +69,6 @@ final class NftDescriptionTableViewCell: UITableViewCell, ViewCode {
 
     func setupStyle() {
         backgroundColor = .backgroudDarkGray
+        selectionStyle = .none
     }
 }
