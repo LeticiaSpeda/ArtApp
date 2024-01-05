@@ -51,6 +51,8 @@ final class ListOFTransactionTableViewCell: UITableViewCell, ViewCode {
     required init?(coder: NSCoder) { nil }
 
     func setupCell(data: ListOfTransaction, isInicial: Bool, isFinal: Bool) {
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 0.5
         idTransactionLabel.text = data.idTransaction
         transactionImageView.image = UIImage(named: data.image)
         valueInDollarLabel.text = "$\(data.valueDollar)"
@@ -90,18 +92,18 @@ final class ListOFTransactionTableViewCell: UITableViewCell, ViewCode {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             transactionImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            transactionImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            transactionImageView.heightAnchor.constraint(equalToConstant: 20),
-            transactionImageView.widthAnchor.constraint(equalToConstant: 20),
+            transactionImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            transactionImageView.heightAnchor.constraint(equalToConstant: 26),
+            transactionImageView.widthAnchor.constraint(equalToConstant: 26),
 
             idTransactionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
             idTransactionLabel.leadingAnchor.constraint(equalTo: transactionImageView.trailingAnchor, constant: 10),
 
             dateEndHourLabel.topAnchor.constraint(equalTo: idTransactionLabel.bottomAnchor, constant: 5),
-            dateEndHourLabel.leadingAnchor.constraint(equalTo: idTransactionLabel.trailingAnchor),
+            dateEndHourLabel.leadingAnchor.constraint(equalTo: transactionImageView.trailingAnchor, constant: 10),
 
             priceEthLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
-            priceEthLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            priceEthLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
 
             valueInDollarLabel.topAnchor.constraint(equalTo: priceEthLabel.bottomAnchor, constant: 5),
             valueInDollarLabel.trailingAnchor.constraint(equalTo: priceEthLabel.trailingAnchor)
