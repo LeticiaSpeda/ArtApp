@@ -1,7 +1,13 @@
 import UIKit
 
+protocol ProfileTableViewCellDelegate: AnyObject {
+    func tappedCloseButton()
+}
+
 final class ProfileTableViewCell: UITableViewCell, ViewCode {
     static let identifier = String(describing: ProfileTableViewCell.self)
+
+    weak var delegate: ProfileTableViewCellDelegate?
 
     private lazy var userImageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "user"))
@@ -65,7 +71,11 @@ final class ProfileTableViewCell: UITableViewCell, ViewCode {
     required init?(coder: NSCoder) { nil }
     
     @objc func tappedCloseButton() {
-        print("ok")
+        delegate?.tappedCloseButton()
+    }
+
+    func setupCell(delegate: ProfileTableViewCellDelegate) {
+        self.delegate = delegate
     }
 
     func setupActions() {

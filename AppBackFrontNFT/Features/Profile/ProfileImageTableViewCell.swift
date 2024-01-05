@@ -19,6 +19,7 @@ final class ProfileImageTableViewCell: UITableViewCell, ViewCode {
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
 
+
     func setupHierarchy() {
         contentView.addSubview(nftImageView)
     }
