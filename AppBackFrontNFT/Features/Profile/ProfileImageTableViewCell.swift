@@ -32,4 +32,9 @@ final class ProfileImageTableViewCell: UITableViewCell, ViewCode {
             nftImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 300)
         ])
     }
+
+    func setupStyle() {
+        backgroundColor = .backgroudDarkGray
+        selectionStyle = .none
+    }
 }
