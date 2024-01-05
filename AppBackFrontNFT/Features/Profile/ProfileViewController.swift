@@ -48,11 +48,16 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             return cell ?? UITableViewCell()
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell
+            cell?.setupCell(delegate: self)
             return cell ?? UITableViewCell()
         }
     }
+}
 
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 600
-//    }
+extension ProfileViewController: ProfileTableViewCellDelegate {
+    func tappedCloseButton() {
+        let controller =  LoginViewController()
+        controller.modalPresentationStyle = .fullScreen
+        navigationController?.setViewControllers([controller], animated: true)
+    }
 }

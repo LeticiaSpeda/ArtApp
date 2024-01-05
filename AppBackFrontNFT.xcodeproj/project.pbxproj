@@ -58,6 +58,9 @@
 		E05248CC2B17733B00E8260C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05248CA2B17733B00E8260C /* LaunchScreen.storyboard */; };
 		E05248D72B17766B00E8260C /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248D62B17766B00E8260C /* ViewCode.swift */; };
 		E05248DA2B1777A200E8260C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05248D92B1777A200E8260C /* UIView+Extensions.swift */; };
+		E063CE5D2B482D8A001FB63F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E063CE5C2B482D8A001FB63F /* ProfileViewController.swift */; };
+		E063CE5F2B482F7A001FB63F /* ProfileImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E063CE5E2B482F7A001FB63F /* ProfileImageTableViewCell.swift */; };
+		E063CE612B4847A9001FB63F /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E063CE602B4847A9001FB63F /* ProfileTableViewCell.swift */; };
 		E06FBD132B41EB7300D41345 /* LastestDealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FBD122B41EB7300D41345 /* LastestDealTableViewCell.swift */; };
 		E06FBD162B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FBD152B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift */; };
 		E06FBD192B41F8CB00D41345 /* ListOffersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FBD182B41F8CB00D41345 /* ListOffersTableViewCell.swift */; };
@@ -104,6 +107,9 @@
 		E05248CD2B17733B00E8260C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E05248D62B17766B00E8260C /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		E05248D92B1777A200E8260C /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		E063CE5C2B482D8A001FB63F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E063CE5E2B482F7A001FB63F /* ProfileImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageTableViewCell.swift; sourceTree = "<group>"; };
+		E063CE602B4847A9001FB63F /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		E06FBD122B41EB7300D41345 /* LastestDealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastestDealTableViewCell.swift; sourceTree = "<group>"; };
 		E06FBD152B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastestDealTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		E06FBD182B41F8CB00D41345 /* ListOffersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOffersTableViewCell.swift; sourceTree = "<group>"; };
@@ -317,6 +323,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E063CE5B2B482D63001FB63F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E063CE5C2B482D8A001FB63F /* ProfileViewController.swift */,
+				E063CE5E2B482F7A001FB63F /* ProfileImageTableViewCell.swift */,
+				E063CE602B4847A9001FB63F /* ProfileTableViewCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		E06FBD142B41EBB200D41345 /* LastestDeal */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +358,7 @@
 				E07478FC2B4086E600E04FE4 /* NftDetail */,
 				E06FBD1F2B43368800D41345 /* MagnifyingGlass */,
 				E0B8A9822B444A4800A9E6F2 /* Wallet */,
+				E063CE5B2B482D63001FB63F /* Profile */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -597,11 +614,14 @@
 				E02D17B32B41AFCF00D062BE /* String+Extensions.swift in Sources */,
 				E05248C42B17733900E8260C /* LoginViewController.swift in Sources */,
 				E04B2B262B30D379001153B3 /* HomeViewModel.swift in Sources */,
+				E063CE612B4847A9001FB63F /* ProfileTableViewCell.swift in Sources */,
 				E06FBD212B4338AE00D41345 /* MagnifyingGlassViewController.swift in Sources */,
+				E063CE5D2B482D8A001FB63F /* ProfileViewController.swift in Sources */,
 				E00DD8B02B46F0E100851658 /* ListOFTransactionTableViewCell.swift in Sources */,
 				E07479002B40875300E04FE4 /* NftDetailViewModel.swift in Sources */,
 				E07478FE2B40870100E04FE4 /* NftDetailViewController.swift in Sources */,
 				E02D17B12B419E5800D062BE /* NftDescriptionTableViewCell.swift in Sources */,
+				E063CE5F2B482F7A001FB63F /* ProfileImageTableViewCell.swift in Sources */,
 				E06FBD162B41EBCC00D41345 /* LastestDealTableViewCellViewModel.swift in Sources */,
 				E0B8A9852B444A9500A9E6F2 /* WalletViewController.swift in Sources */,
 				E05248C02B17733900E8260C /* AppDelegate.swift in Sources */,
