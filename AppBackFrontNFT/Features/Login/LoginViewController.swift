@@ -318,7 +318,7 @@ extension LoginViewController: LoginViewModelDelegate {
             } else {
                 let controller = TabBarController()
                 controller.modalPresentationStyle = .fullScreen
-                self.present(controller, animated: true)
+                self.navigationController?.setViewControllers([controller], animated: true)
             }
         })
     }
