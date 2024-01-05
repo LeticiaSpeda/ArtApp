@@ -14,9 +14,12 @@ final class TabBarController: UITabBarController {
         let wallet = WalletViewController(viewModel: WalletViewModel(service: WalletService()))
         wallet.tabBarItem.image = UIImage(systemName: "wallet.pass.fill")
 
+        let profile = ProfileViewController()
+        profile.tabBarItem.image = UIImage(systemName: "person.crop.square.fill")
+
         tabBar.tintColor = .white
         tabBar.backgroundColor = .black.withAlphaComponent(0.8)
 
-        setViewControllers([home, wallet], animated: true)
+        setViewControllers([home, wallet, profile], animated: true)
     }
 }
