@@ -1,10 +1,32 @@
-# BackFrontNFTApp
+# ArtApp
 
-App para mostrar 'artes' imagens criadas dos usuarios, essas imagens vem da api, e é exibida em table view alem de poder filtrar cada tipo de arte, por exemplo 3D. O intuito desse app é a manipulacao de tableVIew com collection.
+O ArtApp é um aplicativo que exibe imagens de "artes" criadas pelos usuários. Essas imagens são obtidas de uma API e são exibidas em uma TableView, permitindo que os usuários filtrem cada tipo de arte, como 3D. O principal objetivo deste aplicativo é demonstrar a manipulação de TableView com Collection.
 
-# Bibliotecas
-- Firebase
-- Alamofire
+## Recursos Principais
+
+- Exibição de imagens de "artes" em uma TableView
+- Filtros com UICollectionView para cada tipo de arte, como 3D
+- Interface intuitiva e fácil de usar
+
+## Bibliotecas Utilizadas
+
+Este projeto utiliza as seguintes bibliotecas:
+
+- Firebase: Utilizado para integração de serviços em nuvem, como armazenamento de dados em tempo real e autenticação de usuários.
+- Alamofire: Utilizado para facilitar a realização de requisições HTTP.
+
+## Instalação
+
+1. Clone este repositório: `git clone https://github.com/LeticiaSpeda/ArtApp.git`
+2. Navegue até o diretório do projeto: `cd art-app`
+3. Instale as dependências: `pod install`
+
+## Como Usar
+
+1. Execute o aplicativo em um simulador iOS ou dispositivo físico.
+2. Navegue pelas diferentes categorias de arte na TableView.
+3. Explore as imagens de arte em detalhes.
+4. Utilize os filtros com UICollectionView para encontrar artes específicas, como do tipo 3D.
 
 # Screenshots
 ![Captura de Tela 2024-01-30 às 21 30 35](https://github.com/LeticiaSpeda/BackFrontNFTApp/assets/85207486/8548972b-e57b-4556-9fbc-19d011757221)
